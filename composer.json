@@ -1,0 +1,21 @@
+{
+  "require": {
+    "matyhtf/swoole_framework": "^1.16",
+    "nikic/fast-route": "^1.2",
+    "symfony/var-dumper": "^3.3",
+    "filp/whoops": "^2.1",
+    "twig/twig": "^2.4"
+  },
+  "autoload": {
+    "classmap": [
+      "Lib/",
+      "Application/"
+    ]
+  },
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://packagist.phpcomposer.com"
+    }
+  }
+}
