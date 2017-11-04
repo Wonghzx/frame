@@ -4,7 +4,9 @@
     "nikic/fast-route": "^1.2",
     "symfony/var-dumper": "^3.3",
     "filp/whoops": "^2.1",
-    "twig/twig": "^2.4"
+    "twig/twig": "^2.4",
+    "monolog/monolog": "^1.23",
+    "doctrine/dbal": "^2.6"
   },
   "autoload": {
     "classmap": [

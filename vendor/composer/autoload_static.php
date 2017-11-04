@@ -32,9 +32,20 @@ class ComposerStaticInitdb06ba5144165dd96aff23fcafbfd4f0
         array (
             'Psr\\Log\\' => 8,
         ),
+        'M' => 
+        array (
+            'Monolog\\' => 8,
+        ),
         'F' => 
         array (
             'FastRoute\\' => 10,
+        ),
+        'D' => 
+        array (
+            'Doctrine\\Common\\Inflector\\' => 26,
+            'Doctrine\\Common\\Cache\\' => 22,
+            'Doctrine\\Common\\Annotations\\' => 28,
+            'Doctrine\\Common\\' => 16,
         ),
     );
 
@@ -67,9 +78,29 @@ class ComposerStaticInitdb06ba5144165dd96aff23fcafbfd4f0
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
+        'Monolog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
+        ),
+        'Doctrine\\Common\\Inflector\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector',
+        ),
+        'Doctrine\\Common\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache',
+        ),
+        'Doctrine\\Common\\Annotations\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations',
+        ),
+        'Doctrine\\Common\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
         ),
     );
 
@@ -88,6 +119,21 @@ class ComposerStaticInitdb06ba5144165dd96aff23fcafbfd4f0
                 0 => __DIR__ . '/..' . '/matyhtf/swoole_framework/libs',
             ),
         ),
+        'D' => 
+        array (
+            'Doctrine\\DBAL\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/dbal/lib',
+            ),
+            'Doctrine\\Common\\Lexer\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/lexer/lib',
+            ),
+            'Doctrine\\Common\\Collections\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/collections/lib',
+            ),
+        ),
     );
 
     public static $classMap = array (
@@ -96,8 +142,9 @@ class ComposerStaticInitdb06ba5144165dd96aff23fcafbfd4f0
         'Application\\Http\\UserController' => __DIR__ . '/../..' . '/Application/Http/UserController.php',
         'Application\\Server\\Swoole' => __DIR__ . '/../..' . '/Application/Server/Swoole.php',
         'Lib\\App' => __DIR__ . '/../..' . '/Lib/App.php',
-        'Lib\\Configs\\db' => __DIR__ . '/../..' . '/Application/Configs/db.php',
+        'Lib\\Configs' => __DIR__ . '/../..' . '/Lib/Configs.php',
         'Lib\\Configs\\server' => __DIR__ . '/../..' . '/Application/Configs/server.php',
+        'Lib\\Database' => __DIR__ . '/../..' . '/Lib/Database.php',
         'Lib\\Functions' => __DIR__ . '/../..' . '/Lib/Functions.php',
         'Lib\\Handler' => __DIR__ . '/../..' . '/Lib/Handler.php',
         'Lib\\View' => __DIR__ . '/../..' . '/Lib/View.php',

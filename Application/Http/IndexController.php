@@ -10,7 +10,7 @@ class IndexController extends BaseController
     public function index()
     {
 
-        $this->makeFile('index', ['aa' => 'ssx']);
+        $this->display('index', ['aa' => 'ssx']);
     }
 
     public function User()
