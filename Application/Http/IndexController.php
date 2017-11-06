@@ -9,8 +9,8 @@ class IndexController extends BaseController
 
     public function index()
     {
-        $this->display('index', ['aa' => 'ssx']);//
-
+        echo 123;
+//        $this->display('index', ['aa' => 'ssx']);
     }
 
     public function User()
