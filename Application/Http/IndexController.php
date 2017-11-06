@@ -9,8 +9,10 @@ class IndexController extends BaseController
 
     public function index()
     {
-        echo 123;
-//        $this->display('index', ['aa' => 'ssx']);
+        $sql = " SELECT * FROM user";
+        $list = $this->DB()->query($sql)->fetchAll();
+
+        $this->display('index', ['aa' => 'ssx']);
     }
 
     public function User()
@@ -18,4 +20,5 @@ class IndexController extends BaseController
 
         echo 'User/index';
     }
+
 }

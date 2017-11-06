@@ -2,11 +2,11 @@
 
 return [
     'driver' => 'pdo_mysql',
-    'host' => '127.0.0.1',
+    'host' => '192.168.1.161',
     'port' => '3306',
     'name' => 'test',
     'user' => 'root',
-    'pwd' => '123456',
+    'pwd' => 'xcrozz###',
     'dbms' => 'mysql',
     'engine' => 'MyISAM',
     'charset' => 'utf8',
