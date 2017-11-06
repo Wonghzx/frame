@@ -18,6 +18,8 @@ class Functions
             $pathArr = explode('/', trim($path, '/'));
             if (false !== $pos = strpos($pathArr[0], '?')) {
                 $pathArr = substr($pathArr[0], 0, $pos);
+            } else {
+                $pathArr = $pathArr[0];
             }
             return $pathArr;
         } else {
