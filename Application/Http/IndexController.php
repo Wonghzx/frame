@@ -9,7 +9,7 @@ class IndexController extends BaseController
 
     public function index()
     {
-        $this->display('index', ['aa' => 'ssx']);
+        $this->display('index', ['aa' => 'ssx']);//
 
     }
 
