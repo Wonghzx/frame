@@ -22,5 +22,12 @@ return [
             'Application\Http\User@abc',
         ]
     ],
+    [
+        ['GET'],
+        'controller' => '/Live',
+        'action' => [
+            'Application\Http\Live@index',
+        ]
+    ],
 
 ];

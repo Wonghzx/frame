@@ -11,10 +11,12 @@ class IndexController extends BaseController
     {
 
         $this->display('index', ['aa' => 'ssx']);
+
     }
 
     public function User()
     {
+
         echo 'User/index';
     }
 }
