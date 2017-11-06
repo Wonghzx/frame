@@ -22,7 +22,11 @@ class BaseController extends Database
         $sessionId = $_POST['session_id'];
         if (!empty($sessionId)) {
             session_id($sessionId);
+        } else {
+           header('Location: /Login/login');
         }
+
+
         session_start();
         session('');
     }

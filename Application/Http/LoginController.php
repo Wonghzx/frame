@@ -7,7 +7,7 @@ use Application\Server\Swoole;
 class LoginController extends BaseController
 {
 
-    public function index()
+    public function login()
     {
         $sql = " SELECT * FROM user";
         $list = $this->DB()->query($sql)->fetchAll();
