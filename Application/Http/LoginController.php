@@ -15,7 +15,8 @@ class LoginController extends BaseController
             $password = isset($_POST['password']) ? $_POST['password'] : '';
 
             $queryBuilder = $this->DB()->createQueryBuilder();
-
+            $a = url_encrypt('123');
+            dump($a);die;
             $queryBuilder
                 ->select('id','user_name','user_pwd')
                 ->from('user')
