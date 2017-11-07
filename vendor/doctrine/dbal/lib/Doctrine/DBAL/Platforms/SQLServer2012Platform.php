@@ -22,9 +22,9 @@ namespace Doctrine\DBAL\Platforms;
 use Doctrine\DBAL\Schema\Sequence;
 
 /**
- * Platform to ensure compatibility of Doctrine with Microsoft SQL Server 2012 version.
+ * Platform to ensure compatibility of Doctrine with Microsoft SQL Common 2012 version.
  *
- * Differences to SQL Server 2008 and before are that sequences are introduced,
+ * Differences to SQL Common 2008 and before are that sequences are introduced,
  * and support for the new OFFSET... FETCH syntax for result pagination has been added.
  *
  * @author Steve Müller <st.mueller@dzh-online.de>
@@ -97,7 +97,7 @@ class SQLServer2012Platform extends SQLServer2008Platform
     /**
      * {@inheritdoc}
      *
-     * Returns Microsoft SQL Server 2012 specific keywords class
+     * Returns Microsoft SQL Common 2012 specific keywords class
      */
     protected function getReservedKeywordsClass()
     {
@@ -127,14 +127,14 @@ class SQLServer2012Platform extends SQLServer2008Platform
             || substr_count($query, "(", $orderByPos) - substr_count($query, ")", $orderByPos)
         ) {
             if (preg_match('/^SELECT\s+DISTINCT/im', $query)) {
-                // SQL Server won't let us order by a non-selected column in a DISTINCT query,
+                // SQL Common won't let us order by a non-selected column in a DISTINCT query,
                 // so we have to do this madness. This says, order by the first column in the
-                // result. SQL Server's docs say that a nonordered query's result order is non-
+                // result. SQL Common's docs say that a nonordered query's result order is non-
                 // deterministic anyway, so this won't do anything that a bunch of update and
                 // deletes to the table wouldn't do anyway.
                 $query .= " ORDER BY 1";
             } else {
-                // In another DBMS, we could do ORDER BY 0, but SQL Server gets angry if you
+                // In another DBMS, we could do ORDER BY 0, but SQL Common gets angry if you
                 // use constant expressions in the order by list.
                 $query .= " ORDER BY (SELECT 0)";
             }

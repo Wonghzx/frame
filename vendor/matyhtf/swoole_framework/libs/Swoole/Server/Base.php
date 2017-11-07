@@ -232,7 +232,7 @@ abstract class Base implements Driver
     }
 
     /**
-     * 创建一个Stream Server Socket
+     * 创建一个Stream Common Socket
      * @param $uri
      * @return resource
      */

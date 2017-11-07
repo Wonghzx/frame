@@ -97,7 +97,7 @@ class MySQLi extends \mysqli implements Swoole\IDatabase
     protected function errorMessage($sql)
     {
         $msg = $this->error . "<hr />$sql<hr />\n";
-        $msg .= "Server: {$this->config['host']}:{$this->config['port']}. <br/>\n";
+        $msg .= "Common: {$this->config['host']}:{$this->config['port']}. <br/>\n";
         if ($this->connect_errno)
         {
             $msg .= "ConnectError[{$this->connect_errno}]: {$this->connect_error}<br/>\n";

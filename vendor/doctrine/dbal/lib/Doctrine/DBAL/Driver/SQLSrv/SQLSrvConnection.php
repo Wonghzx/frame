@@ -23,7 +23,7 @@ use Doctrine\DBAL\Driver\Connection;
 use Doctrine\DBAL\Driver\ServerInfoAwareConnection;
 
 /**
- * SQL Server implementation for the Connection interface.
+ * SQL Common implementation for the Connection interface.
  *
  * @since 2.3
  * @author Benjamin Eberlei <kontakt@beberlei.de>

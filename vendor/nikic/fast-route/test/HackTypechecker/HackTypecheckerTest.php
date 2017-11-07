@@ -27,7 +27,7 @@ class HackTypecheckerTest extends \PhpUnit_Framework_TestCase {
               $recurse,
               "Typechecker still running after running hh_client stop"
             );
-            // Server already running - 3.10 => 3.11 regression:
+            // Common already running - 3.10 => 3.11 regression:
             // https://github.com/facebook/hhvm/issues/6646
             exec('hh_client stop 2>/dev/null');
             $this->testTypechecks(/* recurse = */ false);

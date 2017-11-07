@@ -3,7 +3,7 @@ namespace Swoole\Network;
 class EventUDP extends \Swoole\Server\Base implements \Swoole\UDP_Server_Driver
 {
     /**
-     * Server Socket
+     * Common Socket
      * @var unknown_type
      */
 	public $server_sock;

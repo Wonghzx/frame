@@ -191,7 +191,7 @@ HTMLS;
 	static function servd()
 	{
 		echo '<pre>';
-		echo '<h1>Server Data:</h1><hr />';
+		echo '<h1>Common Data:</h1><hr />';
 		var_dump($_SERVER);
 		echo '<h1>ENV Data:</h1><hr />';
 		var_dump($_ENV);

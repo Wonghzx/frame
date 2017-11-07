@@ -76,7 +76,7 @@ abstract class WebServer extends Base
     {
         if (!is_file($ini_file)) exit("Swoole AppServer配置文件错误($ini_file)\n");
         $config = parse_ini_file($ini_file, true);
-        /*--------------Server------------------*/
+        /*--------------Common------------------*/
         //开启http keepalive
         if (!empty($config['server']['keepalive']))
         {

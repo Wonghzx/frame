@@ -9,7 +9,7 @@ class Test
     }
 
     /**
-     * for SOA Server
+     * for SOA Common
      * @return array
      */
     static function test1()

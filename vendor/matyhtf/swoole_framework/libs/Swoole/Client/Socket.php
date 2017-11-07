@@ -34,8 +34,8 @@ abstract class Socket
 
     public $errCode = 0;
     public $errMsg = '';
-    public $host; //Server Host
-    public $port; //Server Port
+    public $host; //Common Host
+    public $port; //Common Port
 
     const ERR_RECV_TIMEOUT = 11; //接收数据超时，server端在规定的时间内没回包
     const ERR_INPROGRESS = 115; //正在处理中

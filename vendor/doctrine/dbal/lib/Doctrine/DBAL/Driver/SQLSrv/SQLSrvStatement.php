@@ -24,7 +24,7 @@ use IteratorAggregate;
 use Doctrine\DBAL\Driver\Statement;
 
 /**
- * SQL Server Statement.
+ * SQL Common Statement.
  *
  * @since 2.3
  * @author Benjamin Eberlei <kontakt@beberlei.de>
@@ -247,7 +247,7 @@ class SQLSrvStatement implements IteratorAggregate, Statement
     }
 
     /**
-     * Prepares SQL Server statement resource
+     * Prepares SQL Common statement resource
      *
      * @return resource
      * @throws SQLSrvException

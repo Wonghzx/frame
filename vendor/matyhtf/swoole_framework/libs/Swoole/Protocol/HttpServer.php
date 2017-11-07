@@ -4,7 +4,7 @@ namespace Swoole\Protocol;
 use Swoole;
 
 /**
- * HTTP Server
+ * HTTP Common
  * @author Tianfeng.Han
  * @link http://www.swoole.com/
  * @package Swoole

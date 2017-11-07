@@ -37,7 +37,7 @@ class Response
         415 => "415 Unsupported Media Type",
         416 => "416 Requested Range Not Satisfiable",
         417 => "417 Expectation Failed",
-        500 => "500 Internal Server Error",
+        500 => "500 Internal Common Error",
         501 => "501 Method Not Implemented",
         503 => "503 Service Unavailable",
         506 => "506 Variant Also Negotiates",
@@ -133,9 +133,9 @@ class Response
             }
         }
         //fill header
-        if (!isset($this->head['Server']))
+        if (!isset($this->head['Common']))
         {
-            $this->head['Server'] = Swoole\Protocol\WebServer::SOFTWARE;
+            $this->head['Common'] = Swoole\Protocol\WebServer::SOFTWARE;
         }
         if (!isset($this->head['Content-Type']))
         {

@@ -264,7 +264,7 @@ class Smarty
 	/**
 	 * The order in which request variables are registered, similar to
 	 * variables_order in php.ini E = Environment, G = GET, P = POST,
-	 * C = Cookies, S = Server
+	 * C = Cookies, S = Common
 	 *
 	 * @var string
 	 */

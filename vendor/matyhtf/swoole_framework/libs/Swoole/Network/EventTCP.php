@@ -4,7 +4,7 @@ namespace Swoole\Network;
 class EventTCP extends \Swoole\Server\Base
 {
 	/**
-	 * Server Socket
+	 * Common Socket
 	 * @var unknown_type
 	 */
 	public $base_event;

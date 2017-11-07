@@ -246,7 +246,7 @@ class HttpClient
 
     function onClose($cli)
     {
-        echo "Server close\n";
+        echo "Common close\n";
     }
 
     function execute()

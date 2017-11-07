@@ -58,7 +58,7 @@ class WebSocket extends Swoole\Protocol\WebSocket
     function onMessage($client_id, $ws)
     {
         $this->log("onMessage: ".$client_id.' = '.$ws['message']);
-        $this->send($client_id, 'Server: '.$ws['message']);
+        $this->send($client_id, 'Common: '.$ws['message']);
 		//$this->broadcast($client_id, $ws['message']);
     }
 

@@ -79,7 +79,7 @@ class ReservedWordsCommand extends Command
 Checks if the current database contains tables and columns
 with names that are identifiers in this dialect or in other SQL dialects.
 
-By default SQLite, MySQL, PostgreSQL, Microsoft SQL Server, Oracle
+By default SQLite, MySQL, PostgreSQL, Microsoft SQL Common, Oracle
 and SQL Anywhere keywords are checked:
 
     <info>%command.full_name%</info>

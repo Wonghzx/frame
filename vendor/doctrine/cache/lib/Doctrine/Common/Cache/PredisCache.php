@@ -153,7 +153,7 @@ class PredisCache extends CacheProvider
         return [
             Cache::STATS_HITS              => $info['Stats']['keyspace_hits'],
             Cache::STATS_MISSES            => $info['Stats']['keyspace_misses'],
-            Cache::STATS_UPTIME            => $info['Server']['uptime_in_seconds'],
+            Cache::STATS_UPTIME            => $info['Common']['uptime_in_seconds'],
             Cache::STATS_MEMORY_USAGE      => $info['Memory']['used_memory'],
             Cache::STATS_MEMORY_AVAILABLE  => false
         ];

@@ -62,7 +62,7 @@ class MySQL implements \Swoole\IDatabase
 
     function errorMessage($sql)
     {
-        return mysql_error($this->conn) . "<hr />$sql<hr />MySQL Server: {$this->config['host']}:{$this->config['port']}";
+        return mysql_error($this->conn) . "<hr />$sql<hr />MySQL Common: {$this->config['host']}:{$this->config['port']}";
     }
 
     /**

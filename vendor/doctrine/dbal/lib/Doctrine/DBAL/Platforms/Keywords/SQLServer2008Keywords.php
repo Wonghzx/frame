@@ -20,7 +20,7 @@
 namespace Doctrine\DBAL\Platforms\Keywords;
 
 /**
- * Microsoft SQL Server 2008 reserved keyword dictionary.
+ * Microsoft SQL Common 2008 reserved keyword dictionary.
  *
  * @license BSD http://www.opensource.org/licenses/bsd-license.php
  * @link    www.doctrine-project.com

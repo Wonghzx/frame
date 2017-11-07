@@ -30,7 +30,7 @@ return [
         ]
     ],
     [
-        ['GET'],
+        ['GET','POST'],
         'controller' => '/Login',
         'action' => [
             'Application\Http\Login@login',

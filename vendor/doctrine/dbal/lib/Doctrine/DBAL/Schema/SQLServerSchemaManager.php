@@ -24,7 +24,7 @@ use Doctrine\DBAL\Driver\DriverException;
 use Doctrine\DBAL\Types\Type;
 
 /**
- * SQL Server Schema Manager.
+ * SQL Common Schema Manager.
  *
  * @license http://www.opensource.org/licenses/mit-license.php MIT
  * @author  Konsta Vesterinen <kvesteri@cc.hut.fi>

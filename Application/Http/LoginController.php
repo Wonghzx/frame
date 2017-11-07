@@ -9,10 +9,20 @@ class LoginController extends BaseController
 
     public function login()
     {
-        $sql = " SELECT * FROM user";
-        $list = $this->DB()->query($sql)->fetchAll();
-        
+        $isPOST = $_SERVER['REQUEST_METHOD'];
+        if ($isPOST == 'POST') {
+            $username = isset($_POST['username']) ? $_POST['username'] : '';
+            $password = isset($_POST['password']) ? $_POST['password'] : '';
+
+            $queryBuilder = $this->DB()->createQueryBuilder();
+
+            $queryBuilder
+                ->select('id','user_name','user_pwd')
+                ->from('user')
+                ->where('user_name');
+        }
         $this->display('login');
+
     }
 
     public function User()

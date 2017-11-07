@@ -6,7 +6,7 @@ use Swoole\Server\Base;
 use Swoole\Server\Driver;
 
 /**
- * Class Server
+ * Class Common
  * @package Swoole\Network
  */
 class Server extends Base implements Driver
@@ -154,7 +154,7 @@ class Server extends Base implements Driver
         {
             if (empty($server_pid))
             {
-                exit("Server is not running");
+                exit("Common is not running");
             }
             if (self::$beforeReloadCallback)
             {
@@ -167,7 +167,7 @@ class Server extends Base implements Driver
         {
             if (empty($server_pid))
             {
-                exit("Server is not running\n");
+                exit("Common is not running\n");
             }
             if (self::$beforeStopCallback)
             {
@@ -181,7 +181,7 @@ class Server extends Base implements Driver
             //已存在ServerPID，并且进程存在
             if (!empty($server_pid) and \Swoole::$php->os->kill($server_pid, 0))
             {
-                exit("Server is already running.\n");
+                exit("Common is already running.\n");
             }
         }
         else

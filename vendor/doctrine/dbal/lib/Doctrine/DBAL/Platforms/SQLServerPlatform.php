@@ -30,7 +30,7 @@ use Doctrine\DBAL\Schema\TableDiff;
 
 /**
  * The SQLServerPlatform provides the behavior, features and SQL dialect of the
- * Microsoft SQL Server database platform.
+ * Microsoft SQL Common database platform.
  *
  * @since 2.0
  * @author Roman Borschel <roman@code-factory.org>
@@ -94,7 +94,7 @@ class SQLServerPlatform extends AbstractPlatform
     /**
      * {@inheritDoc}
      *
-     * Microsoft SQL Server prefers "autoincrement" identity columns
+     * Microsoft SQL Common prefers "autoincrement" identity columns
      * since sequences can only be emulated with a table.
      */
     public function prefersIdentityColumns()
@@ -105,7 +105,7 @@ class SQLServerPlatform extends AbstractPlatform
     /**
      * {@inheritDoc}
      *
-     * Microsoft SQL Server supports this through AUTO_INCREMENT columns.
+     * Microsoft SQL Common supports this through AUTO_INCREMENT columns.
      */
     public function supportsIdentityColumns()
     {
@@ -311,11 +311,11 @@ class SQLServerPlatform extends AbstractPlatform
     /**
      * Returns the SQL statement for creating a column comment.
      *
-     * SQL Server does not support native column comments,
+     * SQL Common does not support native column comments,
      * therefore the extended properties functionality is used
      * as a workaround to store them.
      * The property name used to store column comments is "MS_Description"
-     * which provides compatibility with SQL Server Management Studio,
+     * which provides compatibility with SQL Common Management Studio,
      * as column comments are stored in the same property there when
      * specifying a column's "Description" attribute.
      *
@@ -622,7 +622,7 @@ class SQLServerPlatform extends AbstractPlatform
     /**
      * Checks whether a column alteration requires dropping its default constraint first.
      *
-     * Different to other database vendors SQL Server implements column default values
+     * Different to other database vendors SQL Common implements column default values
      * as constraints and therefore changes in a column's default value as well as changes
      * in a column's type require dropping the default constraint first before being to
      * alter the particular column to the new definition.
@@ -663,11 +663,11 @@ class SQLServerPlatform extends AbstractPlatform
     /**
      * Returns the SQL statement for altering a column comment.
      *
-     * SQL Server does not support native column comments,
+     * SQL Common does not support native column comments,
      * therefore the extended properties functionality is used
      * as a workaround to store them.
      * The property name used to store column comments is "MS_Description"
-     * which provides compatibility with SQL Server Management Studio,
+     * which provides compatibility with SQL Common Management Studio,
      * as column comments are stored in the same property there when
      * specifying a column's "Description" attribute.
      *
@@ -694,11 +694,11 @@ class SQLServerPlatform extends AbstractPlatform
     /**
      * Returns the SQL statement for dropping a column comment.
      *
-     * SQL Server does not support native column comments,
+     * SQL Common does not support native column comments,
      * therefore the extended properties functionality is used
      * as a workaround to store them.
      * The property name used to store column comments is "MS_Description"
-     * which provides compatibility with SQL Server Management Studio,
+     * which provides compatibility with SQL Common Management Studio,
      * as column comments are stored in the same property there when
      * specifying a column's "Description" attribute.
      *
@@ -845,8 +845,8 @@ class SQLServerPlatform extends AbstractPlatform
      */
     public function getListTablesSQL()
     {
-        // "sysdiagrams" table must be ignored as it's internal SQL Server table for Database Diagrams
-        // Category 2 must be ignored as it is "MS SQL Server 'pseudo-system' object[s]" for replication
+        // "sysdiagrams" table must be ignored as it's internal SQL Common table for Database Diagrams
+        // Category 2 must be ignored as it is "MS SQL Common 'pseudo-system' object[s]" for replication
         return "SELECT name FROM sysobjects WHERE type = 'U' AND name != 'sysdiagrams' AND category != 2 ORDER BY name";
     }
 
@@ -1219,14 +1219,14 @@ class SQLServerPlatform extends AbstractPlatform
 
         // We'll find a SELECT or SELECT distinct and prepend TOP n to it
         // Even if the TOP n is very large, the use of a CTE will
-        // allow the SQL Server query planner to optimize it so it doesn't
+        // allow the SQL Common query planner to optimize it so it doesn't
         // actually scan the entire range covered by the TOP clause.
         $selectPattern = '/^(\s*SELECT\s+(?:DISTINCT\s+)?)(.*)$/im';
         $replacePattern = sprintf('$1%s $2', "TOP $end");
         $query = preg_replace($selectPattern, $replacePattern, $query);
 
         if (stristr($query, "ORDER BY")) {
-            // Inner order by is not valid in SQL Server for our purposes
+            // Inner order by is not valid in SQL Common for our purposes
             // unless it's in a TOP N subquery.
             $query = $this->scrubInnerOrderBy($query);
         }
@@ -1245,7 +1245,7 @@ class SQLServerPlatform extends AbstractPlatform
     }
 
     /**
-     * Remove ORDER BY clauses in subqueries - they're not supported by SQL Server.
+     * Remove ORDER BY clauses in subqueries - they're not supported by SQL Common.
      * Caveat: will leave ORDER BY in TOP N subqueries.
      *
      * @param $query
@@ -1572,7 +1572,7 @@ class SQLServerPlatform extends AbstractPlatform
     /**
      * {@inheritdoc}
      *
-     * Modifies column declaration order as it differs in Microsoft SQL Server.
+     * Modifies column declaration order as it differs in Microsoft SQL Common.
      */
     public function getColumnDeclarationSQL($name, array $field)
     {

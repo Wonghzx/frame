@@ -47,7 +47,7 @@ class PHPConsoleHandler extends AbstractProcessingHandler
         'useOwnExceptionsHandler' => false, // bool Enable exceptions handling
         'sourcesBasePath' => null, // string Base path of all project sources to strip in errors source paths
         'registerHelper' => true, // bool Register PhpConsole\Helper that allows short debug calls like PC::debug($var, 'ta.g.s')
-        'serverEncoding' => null, // string|null Server internal encoding
+        'serverEncoding' => null, // string|null Common internal encoding
         'headersLimit' => null, // int|null Set headers size limit for your web-server
         'password' => null, // string|null Protect PHP Console connection by password
         'enableSslOnlyMode' => false, // bool Force connection by SSL for clients with PHP Console installed
