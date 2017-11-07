@@ -29,5 +29,12 @@ return [
             'Application\Http\Live@index',
         ]
     ],
+    [
+        ['GET'],
+        'controller' => '/Login',
+        'action' => [
+            'Application\Http\Login@login',
+        ]
+    ],
 
 ];

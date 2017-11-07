@@ -2,6 +2,7 @@
 
 namespace Application\Http;
 
+use Lib\Configs;
 use Lib\Database;
 use Lib\View;
 
@@ -19,16 +20,20 @@ class BaseController extends Database
 
     public function _initialize()
     {
-        $sessionId = $_POST['session_id'];
-        if (!empty($sessionId)) {
-            session_id($sessionId);
-        } else {
-           header('Location: /Login/login');
+//        $sessionId = $_POST['session_id'];
+//        if (empty($sessionId)) {
+//            session_id($sessionId);
+//        } else {
+//           header('Location: /Login/login');
+//        }
+//
+//
+//        session_start();
+//        session('');
+        $isMobile = $this->isMobile();
+        if ($isMobile) {
+            View::setMobile('Mobile');
         }
-
-
-        session_start();
-        session('');
     }
 
     /**
@@ -39,7 +44,7 @@ class BaseController extends Database
      * @copyright Copyright (c)
      * @return    [type]        [description]
      */
-    protected function display($path, array $params)
+    protected function display($path, array $params = [])
     {
         $make = new View();
         $make->make($path)->with($params);
@@ -54,5 +59,42 @@ class BaseController extends Database
     protected function DB()
     {
         return Database::initialization();
+    }
+
+
+    /**
+     *[isMobile 判断是否 移动端 OR PC]
+     * @author  Wongzx <[842687571@qq.com]>
+     * @copyright Copyright (c)
+     * @return    [type]        [description]
+     */
+    private function isMobile()
+    {
+        $agent = strtolower($_SERVER['HTTP_USER_AGENT']);
+        $is_pc = (strpos($agent, 'windows nt')) ? true : false;
+        $is_mac = (strpos($agent, 'mac os')) ? true : false;
+        $is_iphone = (strpos($agent, 'iphone')) ? true : false;
+        $is_android = (strpos($agent, 'android')) ? true : false;
+        $is_ipad = (strpos($agent, 'ipad')) ? true : false;
+
+        if ($is_pc) {
+            return false;
+        }
+
+        if ($is_mac) {
+            return true;
+        }
+
+        if ($is_iphone) {
+            return true;
+        }
+
+        if ($is_android) {
+            return true;
+        }
+
+        if ($is_ipad) {
+            return true;
+        }
     }
 }

@@ -13,7 +13,7 @@ class View
 
     private static $view;
 
-    private static $implement = [];
+    private static $setMobile = 'Web';
 
 
     /**
@@ -55,7 +55,7 @@ class View
     private static function getViewName($viewName)
     {
         $filePath = str_replace('.', '/', $viewName);
-        $fileName = Functions::getClassName() . '/' . $filePath . '.html';
+        $fileName = self::$setMobile . '/' . Functions::getClassName() . '/' . $filePath . '.html';
         if (file_exists(self::VIEW_BASE_PATH . $fileName)) {
             return $fileName;
         } else {
@@ -63,6 +63,10 @@ class View
         }
     }
 
+    public static function setMobile($default)
+    {
+        self::$setMobile = $default;
+    }
 
     function __destruct()
     {
@@ -72,6 +76,5 @@ class View
         ]);
         $viewFilePath = self::getViewName(self::$view);
         echo $twig->render($viewFilePath, self::$data);
-
     }
 }

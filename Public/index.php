@@ -8,7 +8,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 define('ROOT_PATH', __DIR__);
 define('APP_PATH', __DIR__ . "/../");
-define('DEBUGS', false);//开启错误提示
+define('DEBUGS', true);//开启错误提示
 
 if (DEBUGS) {
     $whoops = new \Whoops\Run;

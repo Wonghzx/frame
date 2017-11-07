@@ -12,7 +12,7 @@ class LoginController extends BaseController
         $sql = " SELECT * FROM user";
         $list = $this->DB()->query($sql)->fetchAll();
         
-        $this->display('index', ['aa' => 'ssx']);
+        $this->display('login');
     }
 
     public function User()
