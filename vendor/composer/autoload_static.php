@@ -140,6 +140,7 @@ class ComposerStaticInitdb06ba5144165dd96aff23fcafbfd4f0
         'Application\\Http\\BaseController' => __DIR__ . '/../..' . '/Application/Http/BaseController.php',
         'Application\\Http\\IndexController' => __DIR__ . '/../..' . '/Application/Http/IndexController.php',
         'Application\\Http\\LiveController' => __DIR__ . '/../..' . '/Application/Http/LiveController.php',
+        'Application\\Http\\LoginController' => __DIR__ . '/../..' . '/Application/Http/LoginController.php',
         'Application\\Http\\UserController' => __DIR__ . '/../..' . '/Application/Http/UserController.php',
         'Application\\Server\\Swoole' => __DIR__ . '/../..' . '/Application/Server/Swoole.php',
         'Lib\\App' => __DIR__ . '/../..' . '/Lib/App.php',
