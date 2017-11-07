@@ -18,5 +18,7 @@ if (DEBUGS) {
     ini_set("display_errors", "Off");
 }
 
+include_once APP_PATH . 'Application/Common/Function.php';
+
 $app = new \Lib\App();
 $app->run();

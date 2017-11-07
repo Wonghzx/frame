@@ -2,7 +2,6 @@
 
 namespace Application\Http;
 
-use Application\Server\Swoole;
 
 class LoginController extends BaseController
 {
@@ -14,22 +13,23 @@ class LoginController extends BaseController
             $username = isset($_POST['username']) ? $_POST['username'] : '';
             $password = isset($_POST['password']) ? $_POST['password'] : '';
 
-            $queryBuilder = $this->DB()->createQueryBuilder();
-            $a = url_encrypt('123');
-            dump($a);die;
-            $queryBuilder
-                ->select('id','user_name','user_pwd')
-                ->from('user')
-                ->where('user_name');
+            $password = url_encrypt($password, 'password');
+            $sql = " SELECT id,user_name,user_pwd FROM user WHERE user_name = '{$username}' AND user_pwd = '{$password}' ";
+            $userInfo = $this->DB()->query($sql)->fetch();
+            if (!empty($userInfo)) {
+                $_SESSION['userInfo'] = $userInfo;
+                header('Location: /Index/index');
+            }
         }
         $this->display('login');
 
     }
 
-    public function User()
+    public function signOut()
     {
-
-        echo 'User/index';
+        session_destroy();
+        header('Location: /Index/index');
     }
+
 
 }

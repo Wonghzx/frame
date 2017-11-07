@@ -34,6 +34,7 @@ return [
         'controller' => '/Login',
         'action' => [
             'Application\Http\Login@login',
+            'Application\Http\Login@signOut',
         ]
     ],
 

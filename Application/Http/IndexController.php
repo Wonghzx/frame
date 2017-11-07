@@ -2,17 +2,44 @@
 
 namespace Application\Http;
 
-use Application\Server\Swoole;
 
 class IndexController extends BaseController
 {
 
+    private $uid;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $session = isset($_SESSION['userInfo']);
+        if ($session == false) {
+            header('Location: /Login/login');
+            exit();
+        }
+        $this->uid = $_SESSION['userInfo']['id'];
+    }
+
     public function index()
     {
-        $sql = " SELECT * FROM user";
-        $list = $this->DB()->query($sql)->fetchAll();
+        $sql = " SELECT * FROM groups WHERE id = 1";
+        $group = $this->DB()->query($sql)->fetch();
 
-        $this->display('index', ['aa' => 'ssx']);
+        $users = explode(',', $group['users']);
+
+        $isGroup = array_search($this->uid, $users);
+        if ($isGroup === false) {
+            return;
+        }
+        unset($users[$isGroup]);
+        $users = implode(',', $users);
+        $res = [
+            'group' => $group,
+            'userId' => $this->uid,
+            'tid' => $users,
+            'groups' => $group['id']
+        ];
+
+        $this->display('index', $res);
     }
 
     public function User()
