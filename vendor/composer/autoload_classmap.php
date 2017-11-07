@@ -11,7 +11,6 @@ return array(
     'Application\\Http\\LiveController' => $baseDir . '/Application/Http/LiveController.php',
     'Application\\Http\\LoginController' => $baseDir . '/Application/Http/LoginController.php',
     'Application\\Http\\UserController' => $baseDir . '/Application/Http/UserController.php',
-    'Application\\Server\\Function' => $baseDir . '/Application/Common/Swoole.php',
     'Lib\\App' => $baseDir . '/Lib/App.php',
     'Lib\\Configs' => $baseDir . '/Lib/Configs.php',
     'Lib\\Configs\\server' => $baseDir . '/Application/Configs/server.php',
