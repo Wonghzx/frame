@@ -24,6 +24,10 @@ class IndexController extends BaseController
         $sql = " SELECT * FROM groups WHERE id = 1";
         $group = $this->DB()->query($sql)->fetch();
 
+        $sql = " SELECT * FROM user  ";
+        $userInfo = $this->DB()->query($sql)->fetchAll();
+
+
         $users = explode(',', $group['users']);
 
         $isGroup = array_search($this->uid, $users);
@@ -36,7 +40,9 @@ class IndexController extends BaseController
             'group' => $group,
             'userId' => $this->uid,
             'tid' => $users,
-            'groups' => $group['id']
+            'groups' => $group['id'],
+            'user' => $userInfo,
+            'userInfo' => $_SESSION['userInfo'],
         ];
 
         $this->display('index', $res);

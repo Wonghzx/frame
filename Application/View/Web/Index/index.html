@@ -27,18 +27,18 @@
     <div class="chat_message fn-clear">
         <div class="chat_left">
             <div class="message_box" id="message_box">
-                <div class="msg_item fn-clear">
+               <!--  <div class="msg_item fn-clear">
                     <div class="uface"><img src="/../Static/images/53f44283a4347.jpg" width="40" height="40"  alt=""/></div>
                     <div class="item_right">
                         <div class="msg">近日，TIOBE发布了2014年9月的编程语言排行榜，Java、C++跌至历史最低点，前三名则没有变化，依旧是C、Java、Objective-C。</div>
                         <div class="name_time">猫猫 · 3分钟前</div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="msg_item fn-clear">
+                <!-- <div class="msg_item fn-clear">
                     <div class="uface"><img src="/../Static/images/53f442834079a.jpg" width="40" height="40"  alt=""/></div>
                     <div class="item_right">
-                        <div class="msg">(Visual) FoxPro, 4th Dimension/4D, Alice, APL, Arc, Automator, Awk, Bash, bc, Bourne shell, C++CLI, CFML, cg, CL (OS/400), Clean, Clojure, Emacs Lisp, Factor, Forth, Hack, Icon, Inform, Io, Ioke, J, JScript.NET, LabVIEW, LiveCode, M4, Magic, Max/MSP, Modula-2, Moto, NATURAL, OCaml, OpenCL, Oz, PILOT, Programming Without Coding Technology, Prolog, Pure Data, Q, RPG (OS/400), S, Smalltalk, SPARK, Standard ML, TOM, VBScript, Z shell</div>
+                        <div class="msg"></div>
                         <div class="name_time">白猫 · 1分钟前</div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                         <div class="msg own">那个统计表也不能说明一切</div>
                         <div class="name_time">河图 · 30秒前</div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="write_box">
                 <textarea id="message" name="message" class="write_area" placeholder="说点啥吧..."></textarea>
@@ -65,9 +65,17 @@
         <div class="chat_right">
             <ul class="user_list" title="双击用户私聊">
                 <li class="fn-clear selected"><em>所有用户</em></li>
-                <li class="fn-clear" data-id="1"><span><img src="/../Static/images/hetu.jpg" width="30" height="30"  alt=""/></span><em>河图</em><small class="online" title="在线"></small></li>
-                <li class="fn-clear" data-id="2"><span><img src="/../Static/images/53f44283a4347.jpg" width="30" height="30"  alt=""/></span><em>猫猫</em><small class="online" title="在线"></small></li>
-                <li class="fn-clear" data-id="3"><span><img src="/../Static/images/53f442834079a.jpg" width="30" height="30"  alt=""/></span><em>白猫</em><small class="offline" title="离线"></small></li>
+                {% for users in user %}
+                    <li class="fn-clear" data-id="1"><span>
+                        <img src="{{users.user_photo}}" width="30" height="30"  alt=""/>
+                        </span>
+                        <em>{{users.user_nickname}}</em>
+                        <small class="online" title="在线"></small>
+                    </li>
+                {% endfor %}
+
+               <!--  <li class="fn-clear" data-id="2"><span><img src="/../Static/images/53f44283a4347.jpg" width="30" height="30"  alt=""/></span><em>猫猫</em><small class="online" title="在线"></small></li>
+                <li class="fn-clear" data-id="3"><span><img src="/../Static/images/53f442834079a.jpg" width="30" height="30"  alt=""/></span><em>白猫</em><small class="offline" title="离线"></small></li> -->
             </ul>
         </div>
     </div>
@@ -121,16 +129,17 @@
     });
     var myId = "{{userId}}";
     var tid = "{{tid}}"; //接收者uid
-    var groups = "{{groups}}"; 
+    var groups = "{{groups}}";
+    var user_photo = "{{userInfo['user_photo']}}";
     var exampleSocket = new WebSocket("ws://192.168.128.130:9502");
     $(function () {
         exampleSocket.onopen = function (event) {
-            console.log(event.data);
+            // console.log(event.data)
             initData(); //加载历史记录
         };
-        exampleSocket.onmessage = function (event) {
-            console.log(event.data);
-            loadData($.parseJSON(event.data)); //导入消息记录，加载新的消息
+        exampleSocket.onmessage = function (event) {    
+            forInMess($.parseJSON(event.data)); //导入消息记录，加载新的消息
+            console.log($.parseJSON(event.data).length);
         }
     })
 
@@ -140,14 +149,15 @@
             msg = '您对 ' + to_uname + ' 说： ' + msg;
         }
         var htmlData =   '<div class="msg_item fn-clear">'
-            + '   <div class="uface"><img src="/../Static/images/hetu.jpg" width="40" height="40"  alt=""/></div>'
+            + '   <div class="uface"><img src="'+user_photo+'" width="40" height="40"  alt=""/></div>'
             + '   <div class="item_right">'
             + '     <div class="msg own">' + msg + '</div>'
-            + '     <div class="name_time">' + from_name + ' · 30秒前</div>'
+            + '     <div class="name_time">' + from_name + ' · '+ '30秒前' +'</div>'
             + '   </div>'
             + '</div>';
-        $("#message_box").append(htmlData);
-        $('#message_box').scrollTop($("#message_box")[0].scrollHeight + 20);
+        // $("#message_box").append(htmlData);
+        // $('#message_box').scrollTop($("#message_box")[0].scrollHeight + 50);
+        // forInMess();
         $("#message").val('');
          var pData = {
             "content": msg,
@@ -159,33 +169,39 @@
         exampleSocket.send(pData); //发送消息
     }
 
-        
-        // function sendMsg() {
-        //     var pData = {
-        //         content: document.getElementById('content').value,
-        //         fid: myId,
-        //         tid: tid,
-        //     }
-        //     if(pData.content == ''){
-        //         alert("消息不能为空");
-        //         return;
-        //     }
-        //     exampleSocket.send('$.toJSON(pData)'); //发送消息
-        // }
-        function initData() {
-            var pData = {
-                fid: myId,
-                tid: tid,
-            }
-            // console.log(pData);
-            exampleSocket.send('$.toJSON(pData)'); //获取消息记录，绑定fd
+    function initData() {
+        var pData = {
+            "fid": myId,
+            "tid": tid,
+            "groups":groups
         }
-        function loadData(data) {
-            for (var i = 0; i < data.length; i++) {
-                var html = '<p>' + data[i].fid + '>' + data[i].tid + ':' + data[i].content + '</p>';
-                $("#history").append(html);
-            }
+       pData = JSON.stringify(pData);
+       exampleSocket.send(pData);
+     }
+    function loadData(data) {
+        for (var i = 0; i < data.length; i++) {
+            var html = '<p>' + data[i].fid + '>' + data[i].tid + ':' + data[i].content + '</p>';
+            $("#history").append(html);
         }
+    }
+
+    function forInMess(data) {
+        for (f in data) {
+            var own = '';
+            if (data[f].fid == myId) {
+                own = 'own';
+            }
+            var htmlData =   '<div class="msg_item fn-clear">'
+                + '   <div class="uface"><img src="'+data[f].user_photo+'" width="40" height="40"  alt=""/></div>'
+                + '   <div class="item_right">'
+                + '     <div class="msg '+own+'">' + data[f].content + '</div>'
+                + '     <div class="name_time">' + data[f].user_nickname + ' · '+ '30秒前' +'</div>'
+                + '   </div>'
+                + '</div>';
+            $("#message_box").append(htmlData);
+        }
+        $('#message_box').scrollTop($("#message_box")[0].scrollHeight);
+    }
 </script>
 </body>
 </html>
