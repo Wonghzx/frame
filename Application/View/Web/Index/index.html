@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>聊天室 - editor:yinq</title>
+    <title>Chat</title> <!--  聊天室 -  -->
     <link rel="shortcut icon" href="favicon.png">
     <link rel="icon" href="/../Static/favicon.png" type="image/x-icon">
     <link type="text/css" rel="stylesheet" href="/../Static/css/chat.css">
@@ -134,12 +134,12 @@
     var exampleSocket = new WebSocket("ws://192.168.128.130:9502");
     $(function () {
         exampleSocket.onopen = function (event) {
-            // console.log(event.data)
+            console.log(event.data)
             initData(); //加载历史记录
         };
         exampleSocket.onmessage = function (event) {    
             forInMess($.parseJSON(event.data)); //导入消息记录，加载新的消息
-            console.log($.parseJSON(event.data).length);
+            console.log($.parseJSON(event.data));
         }
     })
 

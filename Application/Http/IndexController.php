@@ -48,10 +48,10 @@ class IndexController extends BaseController
         $this->display('index', $res);
     }
 
-    public function User()
+
+    public function checkChatInformation()
     {
 
-        echo 'User/index';
     }
 
 }
