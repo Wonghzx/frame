@@ -31,6 +31,11 @@ class ComposerStaticInitdb06ba5144165dd96aff23fcafbfd4f0
         'P' => 
         array (
             'Psr\\Log\\' => 8,
+            'Psr\\Container\\' => 14,
+        ),
+        'N' => 
+        array (
+            'Noodlehaus\\' => 11,
         ),
         'M' => 
         array (
@@ -78,6 +83,14 @@ class ComposerStaticInitdb06ba5144165dd96aff23fcafbfd4f0
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'Noodlehaus\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hassankhan/config/src',
+        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
@@ -119,6 +132,13 @@ class ComposerStaticInitdb06ba5144165dd96aff23fcafbfd4f0
                 0 => __DIR__ . '/..' . '/matyhtf/swoole_framework/libs',
             ),
         ),
+        'P' => 
+        array (
+            'Pimple' => 
+            array (
+                0 => __DIR__ . '/..' . '/pimple/pimple/src',
+            ),
+        ),
         'D' => 
         array (
             'Doctrine\\DBAL\\' => 
@@ -144,7 +164,7 @@ class ComposerStaticInitdb06ba5144165dd96aff23fcafbfd4f0
         'Application\\Http\\UserController' => __DIR__ . '/../..' . '/Application/Http/UserController.php',
         'Lib\\App' => __DIR__ . '/../..' . '/Lib/App.php',
         'Lib\\Configs' => __DIR__ . '/../..' . '/Lib/Configs.php',
-        'Lib\\Configs\\server' => __DIR__ . '/../..' . '/Application/Configs/server.php',
+        'Lib\\Configs\\server' => __DIR__ . '/../..',
         'Lib\\Database' => __DIR__ . '/../..' . '/Lib/Database.php',
         'Lib\\Functions' => __DIR__ . '/../..' . '/Lib/Functions.php',
         'Lib\\Handler' => __DIR__ . '/../..' . '/Lib/Handler.php',

@@ -2,6 +2,7 @@
 
 namespace Application\Http;
 
+use Lib\App;
 use Lib\Configs;
 use Lib\Database;
 use Lib\View;
@@ -21,11 +22,18 @@ class BaseController extends Database
     public function _initialize()
     {
 
-        session_start();
-        $isMobile = $this->isMobile();
-        if ($isMobile) {
-            View::setMobile('Mobile');
-        }
+//        session_start();
+//        $isMobile = $this->isMobile();
+//        if ($isMobile) {
+           $a =  App::getContainer();
+           $a['config'] = function ($c) {
+               $a = new $c['config'];
+               dump($a);
+//                return new $c['default_application']($c['wbc']);
+            };
+//        }
+        dump($a['config']);
+        die;
     }
 
     /**
@@ -50,7 +58,7 @@ class BaseController extends Database
      */
     protected function DB()
     {
-        return Database::initialization();
+//        return Database::initialization();
     }
 
 

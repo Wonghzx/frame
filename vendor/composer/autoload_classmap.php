@@ -13,7 +13,7 @@ return array(
     'Application\\Http\\UserController' => $baseDir . '/Application/Http/UserController.php',
     'Lib\\App' => $baseDir . '/Lib/App.php',
     'Lib\\Configs' => $baseDir . '/Lib/Configs.php',
-    'Lib\\Configs\\server' => $baseDir . '/Application/Configs/server.php',
+    'Lib\\Configs\\server' => $baseDir . '/Application/Configs/server.json',
     'Lib\\Database' => $baseDir . '/Lib/Database.php',
     'Lib\\Functions' => $baseDir . '/Lib/Functions.php',
     'Lib\\Handler' => $baseDir . '/Lib/Handler.php',

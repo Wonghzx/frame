@@ -1,0 +1,5 @@
+{
+  "default_application": "Http",
+  "default_controller": "Index",
+  "default_action": "index"
+}
