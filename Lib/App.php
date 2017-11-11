@@ -50,7 +50,7 @@ class App
         $logger = new Logger('Http');
         $logger->pushHandler(new StreamHandler(APP_PATH . 'Runtime/Logs/Http.log'));
         $container['logger'] = $logger;
-
+        $logger->warning('Foo');
 
         self::$container = $container;
     }

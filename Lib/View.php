@@ -13,8 +13,6 @@ class View
 
     private static $view;
 
-    private static $setMobile = 'Web';
-
 
     /**
      *[make void]
@@ -54,9 +52,8 @@ class View
      */
     private static function getViewName($viewName)
     {
-        dump(App::getConfig()['default_application']);
         $filePath = str_replace('.', '/', $viewName);
-        $fileName = self::$setMobile . '/' . Functions::getClassName() . '/' . $filePath . '.html';
+        $fileName = App::getConfig()['default_module'] . '/' . Functions::getClassName() . '/' . $filePath . '.html';
         if (file_exists(self::VIEW_BASE_PATH . $fileName)) {
             return $fileName;
         } else {
@@ -64,10 +61,6 @@ class View
         }
     }
 
-    public static function setMobile($default)
-    {
-        self::$setMobile = $default;
-    }
 
     function __destruct()
     {

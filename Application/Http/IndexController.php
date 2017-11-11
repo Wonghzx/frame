@@ -24,7 +24,7 @@ class IndexController extends BaseController
 
     public function index()
     {
-          $data = App::getConfig();
+
 //        $sql = " SELECT * FROM groups WHERE id = 1";
 //        $group = $this->DB()->query($sql)->fetch();
 //

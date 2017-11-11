@@ -10,11 +10,11 @@ use Lib\View;
 class BaseController extends Database
 {
 
+    protected $container;
+
     public function __construct()
     {
-        parent::__construct();
-
-        //初始化
+        $this->container = App::getContainer();
         $this->_initialize();
     }
 
@@ -23,17 +23,11 @@ class BaseController extends Database
     {
 
 //        session_start();
-//        $isMobile = $this->isMobile();
-//        if ($isMobile) {
-           $a =  App::getContainer();
-           $a['config'] = function ($c) {
-               $a = new $c['config'];
-               dump($a);
-//                return new $c['default_application']($c['wbc']);
-            };
-//        }
-        dump($a['config']);
-        die;
+        $isMobile = isMobile();
+        if ($isMobile) {
+            $this->container['config']['default_module'] = 'Mobile';
+        }
+
     }
 
     /**
@@ -58,43 +52,9 @@ class BaseController extends Database
      */
     protected function DB()
     {
-//        return Database::initialization();
+        return Database::initialization();
     }
 
 
-    /**
-     *[isMobile 判断是否 移动端 OR PC]
-     * @author  Wongzx <[842687571@qq.com]>
-     * @copyright Copyright (c)
-     * @return    [type]        [description]
-     */
-    private function isMobile()
-    {
-        $agent = strtolower($_SERVER['HTTP_USER_AGENT']);
-        $is_pc = (strpos($agent, 'windows nt')) ? true : false;
-        $is_mac = (strpos($agent, 'mac os')) ? true : false;
-        $is_iphone = (strpos($agent, 'iphone')) ? true : false;
-        $is_android = (strpos($agent, 'android')) ? true : false;
-        $is_ipad = (strpos($agent, 'ipad')) ? true : false;
 
-        if ($is_pc) {
-            return false;
-        }
-
-        if ($is_mac) {
-            return true;
-        }
-
-        if ($is_iphone) {
-            return true;
-        }
-
-        if ($is_android) {
-            return true;
-        }
-
-        if ($is_ipad) {
-            return true;
-        }
-    }
 }

@@ -8,11 +8,6 @@ class Database
 {
     private static $dbInfo;
 
-    public function __construct()
-    {
-        self::getDbInfo();
-    }
-
     /**
      *[initialization 初始化数据库]
      * @author  Wongzx <[842687571@qq.com]>
@@ -21,23 +16,23 @@ class Database
      */
     public function initialization()
     {
-//        $config = new \Doctrine\DBAL\Configuration();
-//        $connectionParams = [
-//            'dbname' => self::$dbInfo['name'],
-//            'user' => self::$dbInfo['user'],
-//            'password' => self::$dbInfo['pwd'],
-//            'host' => self::$dbInfo['host'],
-//            'driver' => self::$dbInfo['driver'],
-//            'port' => self::$dbInfo['port'],
-//            'charset' => self::$dbInfo['charset'],
-//        ];
-//        $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
-//        return $conn;
+        $config = new Configuration();
+        $connectionParams = [
+            'dbname' => App::getConfig()['name'],
+            'user' => App::getConfig()['user'],
+            'password' => App::getConfig()['pwd'],
+            'host' => App::getConfig()['host'],
+            'driver' => App::getConfig()['driver'],
+            'port' => App::getConfig()['port'],
+            'charset' => App::getConfig()['charset'],
+        ];
+        $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
+        return $conn;
     }
 
 
     private static function getDbInfo()
     {
-//        self::$dbInfo = Configs::getConfigFile('db');
+        self::$dbInfo = Configs::getConfigFile('db');
     }
 }
