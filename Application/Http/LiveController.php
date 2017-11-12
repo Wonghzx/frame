@@ -6,6 +6,6 @@ class LiveController extends BaseController
 {
     public function index()
     {
-        $this->display('index', ['aa' => 'ssx']);
+        $this->display('Live', ['aa' => 'ssx']);
     }
 }

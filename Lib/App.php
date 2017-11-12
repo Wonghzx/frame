@@ -44,13 +44,12 @@ class App
         $container['config'] = $config;
 
         //日志服务代码如下，我们使用config作为闭包的参数传进去
+
 //        $container['logger'] = function () use ($config) {
-//
 //        };
-        $logger = new Logger('Http');
-        $logger->pushHandler(new StreamHandler(APP_PATH . 'Runtime/Logs/Http.log'));
+        $logger = new Logger($config->get('app_name'));
+        $logger->pushHandler(new StreamHandler(APP_PATH . $config->get('log_file'), Logger::WARNING));
         $container['logger'] = $logger;
-        $logger->warning('Foo');
 
         self::$container = $container;
     }
