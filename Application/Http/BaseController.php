@@ -3,7 +3,6 @@
 namespace Application\Http;
 
 use Lib\App;
-use Lib\Configs;
 use Lib\Database;
 use Lib\View;
 
@@ -19,7 +18,7 @@ class BaseController extends Database
     }
 
 
-    public function _initialize()
+    private function _initialize()
     {
 
 //        session_start();

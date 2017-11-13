@@ -2,6 +2,8 @@
 
 namespace Lib;
 
+use Latte\Engine;
+
 class View
 {
 
@@ -53,7 +55,7 @@ class View
     private static function getViewName($viewName)
     {
         $filePath = str_replace('.', '/', $viewName);
-        $fileName = App::getConfig()['default_module'] . '/' . Functions::getClassName() . '/' . $filePath . '.html';
+        $fileName = App::getConfig('default_module') . '/' . Functions::getClassName() . '/' . $filePath . '.html';
         if (file_exists(self::VIEW_BASE_PATH . $fileName)) {
             return $fileName;
         } else {
@@ -61,14 +63,11 @@ class View
         }
     }
 
-
     function __destruct()
     {
-        $loader = new \Twig_Loader_Filesystem(self::VIEW_BASE_PATH);
-        $twig = new \Twig_Environment($loader, [
-//            'cache' => self::CACHE_BASE_PATH,
-        ]);
+        $latte = new Engine();
+        $latte->setTempDirectory(self::CACHE_BASE_PATH);
         $viewFilePath = self::getViewName(self::$view);
-        echo $twig->render($viewFilePath, self::$data);
+        $latte->render(self::VIEW_BASE_PATH . $viewFilePath, self::$data);
     }
 }

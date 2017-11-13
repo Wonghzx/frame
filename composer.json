@@ -8,7 +8,10 @@
     "monolog/monolog": "^1.23",
     "doctrine/dbal": "^2.6",
     "hassankhan/config": "^0.11.2",
-    "pimple/pimple": "^3.2"
+    "pimple/pimple": "^3.2",
+    "latte/latte": "^2.4",
+    "nette/database": "^2.4",
+    "nette/di": "^2.4"
   },
   "autoload": {
     "classmap": [

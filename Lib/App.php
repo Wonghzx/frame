@@ -77,11 +77,13 @@ class App
 
     /**
      * getConfig  [description]
+     * @param $configName
      * @copyright Copyright (c)
      * @author Wongzx <842687571@qq.com>
+     * @return mixed
      */
-    public static function getConfig()
+    public static function getConfig($configName)
     {
-        return self::$container['config'];
+        return self::$container['config'][$configName];
     }
 }
