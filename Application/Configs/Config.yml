@@ -1,0 +1,9 @@
+
+
+default_application: Http          #
+
+log_file: Runtime/Logs/Http.log   #
+
+app_name: Http                    #
+
+default_module: Web               #

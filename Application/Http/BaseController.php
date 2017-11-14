@@ -3,17 +3,19 @@
 namespace Application\Http;
 
 use Lib\App;
-use Lib\Database;
 use Lib\View;
 
-class BaseController extends Database
+class BaseController
 {
 
     protected $container;
 
+    protected $database;
+
     public function __construct()
     {
         $this->container = App::getContainer();
+        dump($this->container['config']);die;
         $this->_initialize();
     }
 
@@ -49,11 +51,10 @@ class BaseController extends Database
      * @copyright Copyright (c)
      * @return    [type]        [description]
      */
-    protected function DB()
+    protected function db()
     {
-        return Database::initialization();
+        return $this->container['dataBase'];
     }
-
 
 
 }

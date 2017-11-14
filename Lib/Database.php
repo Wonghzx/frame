@@ -3,10 +3,24 @@
 namespace Lib;
 
 use Doctrine\DBAL\Configuration;
-use Nette\Database\Connection;
+
+
 class Database
 {
     private static $dbInfo;
+
+    private $parameters;
+
+    private $services = [];
+
+    public $db;
+
+    public function __construct(array $parameters)
+    {
+        $this->parameters = $parameters;
+        $this->db = $this->getService();
+    }
+
 
     /**
      *[initialization 初始化数据库]
@@ -14,48 +28,38 @@ class Database
      * @copyright Copyright (c)
      * @return    [type]        [description]¬
      */
-//    public function initialization()
-//    {
-//        $config = new Configuration();
-//        $connectionParams = [
-//            'dbname' => App::getConfig('db_name'),
-//            'user' => App::getConfig('db_user'),
-//            'password' => App::getConfig('db_pwd'),
-//            'host' => App::getConfig('db_host'),
-//            'driver' => App::getConfig('db_driver'),
-//            'port' => App::getConfig('db_port'),
-//            'charset' => App::getConfig('db_charset'),
-//        ];
-//        $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
-//        return $conn;
-//    }
-
-    private $parameters;
-
-    private $services = [];
-
-
-    function createDatabase()
+    private function createDatabase()
     {
-        return new Connection(
-            $this->parameters[App::getConfig('db_dbms')],
-            $this->parameters[App::getConfig('db_user')],
-            $this->parameters[App::getConfig('db_pwd')]
-        );
+        $config = new Configuration();
+        $conn = \Doctrine\DBAL\DriverManager::getConnection($this->parameters, $config);
+        return $conn;
     }
 
-    function createArticleFactory()
-    {
-        return new ArticleFactory($this->getService('Database'));
-    }
-
-    function getService($name)
+    private function getService($name = 'Database')
     {
         if (!isset($this->services[$name])) {
-            // getService('Database') will call createDatabase()
+            // getService('Database') 调用 createDatabase() 方法
             $method = 'create' . $name;
             $this->services[$name] = $this->$method();
         }
         return $this->services[$name];
     }
+
+    /**
+     * query  [description]
+     * @param $sql
+     * @copyright Copyright (c)
+     * @author Wongzx <842687571@qq.com>
+     * @return array
+     */
+    public function createQueryBuilder()
+    {
+        if (empty($sql)) {
+            return [];
+        } else {
+            $queryBuilder = $this->db->createQueryBuilder();
+            return $queryBuilder;
+        }
+    }
+
 }

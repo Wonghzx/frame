@@ -13,7 +13,6 @@ class App
 
     protected static $container;
 
-
     /**
      *[run Run]
      * @author  Wongzx <[842687571@qq.com]>
@@ -36,15 +35,25 @@ class App
         //实例化容器对象
         $container = new Container();
 
-
         //载入我们的config文件
         $config = Config::load(APP_PATH . "Application/Configs");
-
+//        dump($config);die;
         //注入到容器，下次可以直接使用
         $container['config'] = $config;
 
-        //日志服务代码如下，我们使用config作为闭包的参数传进去
+        //数据库
+        $db = new Database([
+            'dbname' => $config['db']['db_name'],
+            'user' => $config['db']['db_user'],
+            'password' => $config['db']['db_pwd'],
+            'host' => $config['db']['db_host'],
+            'driver' => $config['db']['db_driver'],
+            'port' => $config['db']['db_port'],
+            'charset' => $config['db']['db_charset'],
+        ]);
+        $container['dataBase'] = $db->db;
 
+        //日志服务代码如下，我们使用config作为闭包的参数传进去
 //        $container['logger'] = function () use ($config) {
 //        };
         $logger = new Logger($config->get('app_name'));
@@ -52,6 +61,7 @@ class App
         $container['logger'] = $logger;
 
         self::$container = $container;
+
     }
 
     /**
@@ -86,4 +96,10 @@ class App
     {
         return self::$container['config'][$configName];
     }
+
+    public function getDatabase()
+    {
+        return self::$container['dataBase'];
+    }
+
 }

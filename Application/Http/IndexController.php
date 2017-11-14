@@ -12,7 +12,6 @@ class IndexController extends BaseController
 
     public function __construct()
     {
-
         parent::__construct();
         $session = isset($_SESSION['userInfo']);
         if ($session == false) {
@@ -25,9 +24,9 @@ class IndexController extends BaseController
     public function index()
     {
         $sql = " SELECT * FROM groups WHERE id = 1";
-        $group = $this->DB()->query($sql)->fetch();
+        $group = $this->db()->query($sql)->fetch();
         $sql = " SELECT * FROM user  ";
-        $userInfo = $this->DB()->query($sql)->fetchAll();
+        $userInfo = $this->db()->query($sql)->fetchAll();
 
 
         $users = explode(',', $group['users']);

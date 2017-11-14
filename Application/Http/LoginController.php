@@ -21,7 +21,7 @@ class LoginController extends BaseController
                 header('Location: /Index/index');
             }
         }
-        $this->display('login',['abc'=>'123']);
+        $this->display('login', ['abc' => '123']);
 
     }
 

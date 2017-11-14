@@ -1,0 +1,46 @@
+
+#选项	                   数据类型   	描述
+
+cache_limiter:	          string	   #指定用于会话页面的缓存控制方法。
+
+hash_function:	          string	   #允许您指定用于生成会话ID的哈希算法。
+
+php_save_handler:	       string	    #定义嵌入到PHP中的PHP save_handler的名称。
+
+serialize_handler:	      string	    #定义用于序列化/反序列化数据的处理程序的名称。
+
+url_rewriter_tags:	      string	    #如果启用透明sid，则指定将哪些HTML标记重写为包括会话标识。
+
+use_trans_sid:	           boolean	 #是否启用透明sid支持。
+
+cache_expire:	           integer	  #以分钟为单位指定缓存会话页面的生存时间。
+
+cookie_domain:	            string	  #指定要在会话Cookie中设置的域。
+
+cookie_httponly:	       boolean	  #将cookie标记为只能通过HTTP协议访问。
+
+cookie_lifetime:	       integer	  #以秒为单位指定发送给浏览器的cookie的生命周期。
+
+cookie_path:	           string	   #指定在会话cookie中设置的路径。
+
+cookie_secure:	          boolean	  #指定是否只应通过安全连接发送Cookie。
+
+entropy_length:	          integer	  #指定将从entropy_file中指定的文件中读取的字节数。
+
+entropy_file:	            string	  #定义一个外部资源（文件）的路径，它将被用作一个额外的熵。
+
+gc_maxlifetime:	          integer	  #指定数据被视为“垃圾”之前的秒数。
+
+gc_divisor:	              integer	  #定义每次会话初始化时启动gc进程的概率。
+
+gc_probability:	          integer	  #定义每次会话初始化时启动gc进程的概率。
+
+hash_bits_per_character:  integer     #定义转换二进制散列数据时每个字符中存储的位数。
+
+name:	                  string	  #指定用作cookie名称的会话的名称。
+
+remember_me_seconds:	  integer	  #指定在清除数据之前要记住会话的时间。
+
+save_path:	              string	  #定义传递给保存处理程序的参数。
+
+use_cookies:	          boolean	  #指定模块是否使用cookie来存储会话ID。
