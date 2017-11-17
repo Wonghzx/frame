@@ -15,7 +15,7 @@ class BaseController
     public function __construct()
     {
         $this->container = App::getContainer();
-        dump($this->container['config']);die;
+//        dump($this->container['config']);die;
         $this->_initialize();
     }
 

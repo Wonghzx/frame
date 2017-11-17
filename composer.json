@@ -8,8 +8,8 @@
     "doctrine/dbal": "^2.6",
     "hassankhan/config": "^0.11.2",
     "pimple/pimple": "^3.2",
-    "latte/latte": "^2.4",
-    "symfony/yaml": "^3.3"
+    "symfony/yaml": "^3.3",
+    "latte/latte": "^2.4"
   },
   "autoload": {
     "classmap": [

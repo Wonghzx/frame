@@ -224,7 +224,7 @@ class PrettyPageHandler extends Handler
                 "Files"                 => isset($_FILES) ? $this->masked($_FILES, '_FILES') : [],
                 "Cookies"               => $this->masked($_COOKIE, '_COOKIE'),
                 "Session"               => isset($_SESSION) ? $this->masked($_SESSION, '_SESSION') :  [],
-                "Common/Request Data"   => $this->masked($_SERVER, '_SERVER'),
+                "Server/Request Data"   => $this->masked($_SERVER, '_SERVER'),
                 "Environment Variables" => $this->masked($_ENV, '_ENV'),
             ],
         ];
