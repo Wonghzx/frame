@@ -14,12 +14,12 @@ class LoginController extends BaseController
             $password = isset($_POST['password']) ? $_POST['password'] : '';
 
             $password = url_encrypt($password, 'password');
-            $sql = " SELECT id,user_name,user_pwd FROM user WHERE user_name = '{$username}' AND user_pwd = '{$password}' ";
-            $userInfo = $this->DB()->query($sql)->fetch();
-            if (!empty($userInfo)) {
-                $_SESSION['userInfo'] = $userInfo;
-                header('Location: /Index/index');
-            }
+//            $sql = " SELECT id,user_name,user_pwd FROM user WHERE user_name = '{$username}' AND user_pwd = '{$password}' ";
+//            $userInfo = $this->DB()->query($sql)->fetch();
+//            if (!empty($userInfo)) {
+//                $_SESSION['userInfo'] = $userInfo;
+//                header('Location: /Index/index');
+//            }
         }
         $this->display('login', ['abc' => '123']);
 

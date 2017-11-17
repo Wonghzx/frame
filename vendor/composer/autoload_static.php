@@ -13,6 +13,12 @@ class ComposerStaticInitdb06ba5144165dd96aff23fcafbfd4f0
     );
 
     public static $prefixLengthsPsr4 = array (
+        'Z' => 
+        array (
+            'Zend\\Stdlib\\' => 12,
+            'Zend\\Session\\' => 13,
+            'Zend\\EventManager\\' => 18,
+        ),
         'W' => 
         array (
             'Whoops\\' => 7,
@@ -52,6 +58,18 @@ class ComposerStaticInitdb06ba5144165dd96aff23fcafbfd4f0
     );
 
     public static $prefixDirsPsr4 = array (
+        'Zend\\Stdlib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-stdlib/src',
+        ),
+        'Zend\\Session\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-session/src',
+        ),
+        'Zend\\EventManager\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-eventmanager/src',
+        ),
         'Whoops\\' => 
         array (
             0 => __DIR__ . '/..' . '/filp/whoops/src/Whoops',
