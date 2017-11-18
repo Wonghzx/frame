@@ -2,6 +2,7 @@
 
 namespace Application\Http;
 
+
 class IndexController extends BaseController
 {
 
