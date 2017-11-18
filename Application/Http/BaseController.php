@@ -3,7 +3,6 @@
 namespace Application\Http;
 
 use Lib\App;
-use Lib\View;
 
 class BaseController
 {
@@ -15,7 +14,6 @@ class BaseController
     public function __construct()
     {
         $this->container = App::getContainer();
-//        dump($this->container['config']);die;
         $this->_initialize();
     }
 
@@ -41,8 +39,7 @@ class BaseController
      */
     protected function display($path, array $params = [])
     {
-        $make = new View();
-        $make->make($path)->with($params);
+        $this->container['view']->make($path)->with($params);
     }
 
     /**

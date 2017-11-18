@@ -6,4 +6,4 @@ log_file: Runtime/Logs/Http.log   #
 
 app_name: Http                    #
 
-default_module: Web               #
+default_module: Web               #默认视图模块

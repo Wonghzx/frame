@@ -53,6 +53,10 @@ class App
 //        ]);
 //        $container['dataBase'] = $db->db;
 
+        //初始化视图
+        $view = new View();
+        $container['view'] = $view;
+
         //日志服务代码如下，我们使用config作为闭包的参数传进去
 //        $container['logger'] = function () use ($config) {
 //        };
@@ -97,6 +101,12 @@ class App
         return self::$container['config'][$configName];
     }
 
+    /**
+     *[getDatabase mixed]
+     * @author  Wongzx <[842687571@qq.com]>
+     * @copyright Copyright (c)
+     * @return    [type]        [description]
+     */
     public function getDatabase()
     {
         return self::$container['dataBase'];
