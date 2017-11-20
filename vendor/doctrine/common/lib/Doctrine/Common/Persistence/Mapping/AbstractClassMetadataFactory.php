@@ -352,7 +352,7 @@ abstract class AbstractClassMetadataFactory implements ClassMetadataFactory
     /**
      * Provides a fallback hook for loading metadata when loading failed due to reflection/mapping exceptions
      *
-     * Override this method to implement a fallback strategy for failed metadata loading
+     * Override this method to Interfaces a fallback strategy for failed metadata loading
      *
      * @param string $className
      *

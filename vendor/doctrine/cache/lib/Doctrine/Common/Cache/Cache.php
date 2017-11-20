@@ -20,7 +20,7 @@
 namespace Doctrine\Common\Cache;
 
 /**
- * Interface for cache drivers.
+ * Interfaces for cache drivers.
  *
  * @link   www.doctrine-project.org
  * @since  2.0

@@ -23,7 +23,7 @@ use Closure;
 use Doctrine\Common\Persistence\Proxy as BaseProxy;
 
 /**
- * Interface for proxy classes.
+ * Interfaces for proxy classes.
  *
  * @author Roman Borschel <roman@code-factory.org>
  * @author Marco Pivetta  <ocramius@gmail.com>

@@ -1,9 +1,9 @@
 
+default:     #默认模块
+    default_application: Http          #
 
-default_application: Http          #
+    log_file: Runtime/Logs/Http.log   #
 
-log_file: Runtime/Logs/Http.log   #
+    app_name: Http                    #
 
-app_name: Http                    #
-
-default_module: Web               #默认视图模块
+    default_module: Web               #默认视图模块

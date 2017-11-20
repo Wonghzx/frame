@@ -45,7 +45,7 @@ class IndexController extends BaseController
 //            'userInfo' => $_SESSION['userInfo'],
 //        ];
 
-        $this->display('index', $res);
+        $this->display('index', []);
     }
 
 

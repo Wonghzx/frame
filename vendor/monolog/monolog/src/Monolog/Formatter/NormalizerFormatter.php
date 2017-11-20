@@ -95,7 +95,7 @@ class NormalizerFormatter implements FormatterInterface
                 return $this->normalizeException($data);
             }
 
-            // non-serializable objects that implement __toString stringified
+            // non-serializable objects that Interfaces __toString stringified
             if (method_exists($data, '__toString') && !$data instanceof \JsonSerializable) {
                 $value = $data->__toString();
             } else {

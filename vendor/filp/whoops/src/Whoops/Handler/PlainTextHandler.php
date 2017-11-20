@@ -72,7 +72,7 @@ class PlainTextHandler extends Handler
             || $logger instanceof LoggerInterface)) {
             throw new InvalidArgumentException(
                 'Argument to ' . __METHOD__ .
-                " must be a valid Logger Interface (aka. Monolog), " .
+                " must be a valid Logger Interfaces (aka. Monolog), " .
                 get_class($logger) . ' given.'
             );
         }

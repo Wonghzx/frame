@@ -21,6 +21,18 @@ class App
      */
     public function run()
     {
+
+        $a = new Cache();
+        $a->createCache(['host' => '192.168.128.130','port' => 11211],'apcu');
+//        if ($a->checking('id')) {
+//            echo '123';
+//        } else {
+//        }
+        $s = $a->set('id', ['id' => 1]);
+        dump($s);
+        $x = $a->get('id');
+        dump($x);
+        die;
         $this->initContainer();
         $this->initRoute();
     }
@@ -91,14 +103,15 @@ class App
 
     /**
      * getConfig  [description]
-     * @param $configName
-     * @copyright Copyright (c)
      * @author Wongzx <842687571@qq.com>
+     * @param $configName
+     * @param string $default
+     * @copyright Copyright (c)
      * @return mixed
      */
-    public static function getConfig($configName)
+    public static function getConfig($configName, $default = 'default')
     {
-        return self::$container['config'][$configName];
+        return self::$container['config'][$default][$configName];
     }
 
     /**

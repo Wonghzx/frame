@@ -20,7 +20,7 @@
 namespace Doctrine\Common\Annotations;
 
 /**
- * Interface for annotation readers.
+ * Interfaces for annotation readers.
  *
  * @author Johannes M. Schmitt <schmittjoh@gmail.com>
  */

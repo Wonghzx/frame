@@ -44,10 +44,12 @@ return array(
     'Latte\\TokenIterator' => $vendorDir . '/latte/latte/src/Latte/Compiler/TokenIterator.php',
     'Latte\\Tokenizer' => $vendorDir . '/latte/latte/src/Latte/Compiler/Tokenizer.php',
     'Lib\\App' => $baseDir . '/Lib/App.php',
+    'Lib\\Cache' => $baseDir . '/Lib/Cache.php',
     'Lib\\Configs' => $baseDir . '/Lib/Configs.php',
     'Lib\\Database' => $baseDir . '/Lib/Database.php',
     'Lib\\Functions' => $baseDir . '/Lib/Functions.php',
     'Lib\\Handler' => $baseDir . '/Lib/Handler.php',
+    'Lib\\Interfaces\\CacheInterface' => $baseDir . '/Lib/Interfaces/CacheInterface.php',
     'Lib\\Model' => $baseDir . '/Lib/Model.php',
     'Lib\\View' => $baseDir . '/Lib/View.php',
 );

@@ -20,7 +20,7 @@
 namespace Doctrine\Common\Cache;
 
 /**
- * Interface for cache drivers that supports multiple items manipulation.
+ * Interfaces for cache drivers that supports multiple items manipulation.
  *
  * @link   www.doctrine-project.org
  * @since  1.7

@@ -14,7 +14,7 @@ namespace Monolog\Handler;
 use Monolog\Formatter\FormatterInterface;
 
 /**
- * Interface that all Monolog Handlers must implement
+ * Interfaces that all Monolog Handlers must implement
  *
  * @author Jordi Boggiano <j.boggiano@seld.be>
  */

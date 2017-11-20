@@ -24,7 +24,7 @@ class BaseController
 //        session_start();
         $isMobile = isMobile();
         if ($isMobile) {
-            $this->container['config']['default_module'] = 'Mobile';
+            $this->container['config']['default']['default_module'] = 'Mobile';
         }
 
     }
