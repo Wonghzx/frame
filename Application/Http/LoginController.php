@@ -2,6 +2,9 @@
 
 namespace Application\Http;
 
+use duncan3dc\Sessions\Session;
+use duncan3dc\Sessions\SessionInstance;
+
 class LoginController extends BaseController
 {
 
@@ -16,7 +19,11 @@ class LoginController extends BaseController
             $sql = " SELECT id,user_name,user_pwd FROM user WHERE user_name = '{$username}' AND user_pwd = '{$password}' ";
             $userInfo = $this->DB()->query($sql)->fetch();
             if (!empty($userInfo)) {
-                $_SESSION['userInfo'] = $userInfo;
+                $session = new SessionInstance("my-app");
+//                Session::set('userInfo',$userInfo);
+                $session->set('userInfo',$userInfo);
+
+//                $_SESSION['userInfo'] = $userInfo;
                 header('Location: /Index/index');
             }
         }

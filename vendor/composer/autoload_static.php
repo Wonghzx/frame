@@ -13,6 +13,10 @@ class ComposerStaticInitaaafdd75ac74c763f9cb22294d2db495
     );
 
     public static $prefixLengthsPsr4 = array (
+        'd' => 
+        array (
+            'duncan3dc\\Sessions\\' => 19,
+        ),
         'W' => 
         array (
             'Whoops\\' => 7,
@@ -52,6 +56,10 @@ class ComposerStaticInitaaafdd75ac74c763f9cb22294d2db495
     );
 
     public static $prefixDirsPsr4 = array (
+        'duncan3dc\\Sessions\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/duncan3dc/sessions/src',
+        ),
         'Whoops\\' => 
         array (
             0 => __DIR__ . '/..' . '/filp/whoops/src/Whoops',

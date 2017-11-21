@@ -6,6 +6,9 @@ use Pimple\Container;
 use Noodlehaus\Config;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
+use duncan3dc\Sessions\SessionInstance;
+use duncan3dc\Sessions\Session;
+use duncan3dc\Sessions\Cookie;
 
 class App
 {

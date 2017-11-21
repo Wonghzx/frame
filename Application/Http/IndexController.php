@@ -2,6 +2,8 @@
 
 namespace Application\Http;
 
+use duncan3dc\Sessions\Session;
+use duncan3dc\Sessions\SessionInstance;
 
 class IndexController extends BaseController
 {
@@ -11,12 +13,18 @@ class IndexController extends BaseController
     public function __construct()
     {
         parent::__construct();
-//        $session = isset($_SESSION['userInfo']);
-//        if ($session == false) {
-//            header('Location: /Login/login');
-//            exit();
-//        }
-        $this->uid = $_SESSION['userInfo']['id'];
+        $session = new SessionInstance("my-app");
+
+        Session::name('my-apsp');
+        dump(Session::getAll());die;
+        $sessions = $session->get('userInfo');
+        dump($session->getFlash('id'));die;
+        if (empty($sessions)) {
+            header('Location: /Login/login');
+            exit();
+        }
+
+//        $this->uid = $_SESSION['userInfo']['id'];
     }
 
     public function index()
