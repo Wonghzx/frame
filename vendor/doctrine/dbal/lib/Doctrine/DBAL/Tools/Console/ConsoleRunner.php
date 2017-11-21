@@ -57,7 +57,7 @@ class ConsoleRunner
      */
     static public function run(HelperSet $helperSet, $commands = [])
     {
-        $cli = new Application('Doctrine Command Line Interfaces', Version::VERSION);
+        $cli = new Application('Doctrine Command Line Interface', Version::VERSION);
 
         $cli->setCatchExceptions(true);
         $cli->setHelperSet($helperSet);

@@ -24,7 +24,7 @@ use Doctrine\DBAL\Schema\Table;
 /**
  * Platform to ensure compatibility of Doctrine with SQL Azure
  *
- * On top of SQL Common 2008 the following functionality is added:
+ * On top of SQL Server 2008 the following functionality is added:
  *
  * - Create tables with the FEDERATED ON syntax.
  */

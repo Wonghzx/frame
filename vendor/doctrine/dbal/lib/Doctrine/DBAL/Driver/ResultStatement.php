@@ -20,7 +20,7 @@
 namespace Doctrine\DBAL\Driver;
 
 /**
- * Interfaces for the reading part of a prepare statement only.
+ * Interface for the reading part of a prepare statement only.
  *
  * @author Benjamin Eberlei <kontakt@beberlei.de>
  */

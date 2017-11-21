@@ -48,7 +48,7 @@ class SQLSrvException extends AbstractDriverException
             }
         }
         if ( ! $message) {
-            $message = "SQL Common error occurred but no error message was retrieved from driver.";
+            $message = "SQL Server error occurred but no error message was retrieved from driver.";
         }
 
         return new self(rtrim($message), $sqlState, $errorCode);

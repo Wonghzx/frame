@@ -186,7 +186,6 @@ class ComposerStaticInitdb06ba5144165dd96aff23fcafbfd4f0
         'Latte\\Tokenizer' => __DIR__ . '/..' . '/latte/latte/src/Latte/Compiler/Tokenizer.php',
         'Lib\\App' => __DIR__ . '/../..' . '/Lib/App.php',
         'Lib\\Cache' => __DIR__ . '/../..' . '/Lib/Cache.php',
-        'Lib\\Configs' => __DIR__ . '/../..' . '/Lib/Configs.php',
         'Lib\\Database' => __DIR__ . '/../..' . '/Lib/Database.php',
         'Lib\\Functions' => __DIR__ . '/../..' . '/Lib/Functions.php',
         'Lib\\Handler' => __DIR__ . '/../..' . '/Lib/Handler.php',

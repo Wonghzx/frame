@@ -24,7 +24,7 @@ use Doctrine\DBAL\Events;
 use Doctrine\Common\EventSubscriber;
 
 /**
- * Should be used when Oracle Common default environment does not match the Doctrine requirements.
+ * Should be used when Oracle Server default environment does not match the Doctrine requirements.
  *
  * The following environment variables are required for the Doctrine default date format:
  *

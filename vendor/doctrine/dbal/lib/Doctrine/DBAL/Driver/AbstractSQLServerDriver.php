@@ -29,7 +29,7 @@ use Doctrine\DBAL\Schema\SQLServerSchemaManager;
 use Doctrine\DBAL\VersionAwarePlatformDriver;
 
 /**
- * Abstract base implementation of the {@link Doctrine\DBAL\Driver} interface for Microsoft SQL Common based drivers.
+ * Abstract base implementation of the {@link Doctrine\DBAL\Driver} interface for Microsoft SQL Server based drivers.
  *
  * @author Steve Müller <st.mueller@dzh-online.de>
  * @link   www.doctrine-project.org

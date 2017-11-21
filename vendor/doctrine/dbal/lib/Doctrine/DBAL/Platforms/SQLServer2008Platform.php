@@ -20,9 +20,9 @@
 namespace Doctrine\DBAL\Platforms;
 
 /**
- * Platform to ensure compatibility of Doctrine with Microsoft SQL Common 2008 version.
+ * Platform to ensure compatibility of Doctrine with Microsoft SQL Server 2008 version.
  *
- * Differences to SQL Common 2005 and before are that a new DATETIME2 type was
+ * Differences to SQL Server 2005 and before are that a new DATETIME2 type was
  * introduced that has a higher precision.
  */
 class SQLServer2008Platform extends SQLServer2005Platform
@@ -110,7 +110,7 @@ class SQLServer2008Platform extends SQLServer2005Platform
     /**
      * {@inheritdoc}
      *
-     * Returns Microsoft SQL Common 2008 specific keywords class
+     * Returns Microsoft SQL Server 2008 specific keywords class
      */
     protected function getReservedKeywordsClass()
     {

@@ -45,7 +45,6 @@ return array(
     'Latte\\Tokenizer' => $vendorDir . '/latte/latte/src/Latte/Compiler/Tokenizer.php',
     'Lib\\App' => $baseDir . '/Lib/App.php',
     'Lib\\Cache' => $baseDir . '/Lib/Cache.php',
-    'Lib\\Configs' => $baseDir . '/Lib/Configs.php',
     'Lib\\Database' => $baseDir . '/Lib/Database.php',
     'Lib\\Functions' => $baseDir . '/Lib/Functions.php',
     'Lib\\Handler' => $baseDir . '/Lib/Handler.php',

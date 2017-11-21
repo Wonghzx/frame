@@ -21,7 +21,7 @@ namespace Doctrine\DBAL;
 
 /**
  * Driver interface.
- * Interfaces that all DBAL drivers must implement.
+ * Interface that all DBAL drivers must implement.
  *
  * @since 2.0
  */

@@ -20,10 +20,10 @@
 namespace Doctrine\DBAL\Platforms;
 
 /**
- * Platform to ensure compatibility of Doctrine with Microsoft SQL Common 2005 version and
+ * Platform to ensure compatibility of Doctrine with Microsoft SQL Server 2005 version and
  * higher.
  *
- * Differences to SQL Common 2008 are:
+ * Differences to SQL Server 2008 are:
  *
  * - DATETIME2 datatype does not exist, only DATETIME which has a precision of
  *   3. This is not supported by PHP DateTime, so we are emulating it by
@@ -54,7 +54,7 @@ class SQLServer2005Platform extends SQLServerPlatform
     /**
      * {@inheritdoc}
      *
-     * Returns Microsoft SQL Common 2005 specific keywords class
+     * Returns Microsoft SQL Server 2005 specific keywords class
      */
     protected function getReservedKeywordsClass()
     {

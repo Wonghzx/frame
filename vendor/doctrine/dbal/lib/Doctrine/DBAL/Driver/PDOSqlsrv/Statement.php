@@ -23,7 +23,7 @@ use Doctrine\DBAL\Driver\PDOStatement;
 use PDO;
 
 /**
- * PDO SQL Common Statement
+ * PDO SQL Server Statement
  */
 class Statement extends PDOStatement
 {
