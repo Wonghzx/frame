@@ -21,18 +21,6 @@ class App
      */
     public function run()
     {
-
-        $a = new Cache();
-        $a->createCache(['host' => '192.168.128.130','port' => 11211],'apcu');
-//        if ($a->checking('id')) {
-//            echo '123';
-//        } else {
-//        }
-        $s = $a->set('id', ['id' => 1]);
-        dump($s);
-        $x = $a->get('id');
-        dump($x);
-        die;
         $this->initContainer();
         $this->initRoute();
     }
@@ -45,13 +33,13 @@ class App
     public function initContainer()
     {
         //实例化容器对象
-        $container = new Container();
+        self::$container = new Container();
 
         //载入我们的config文件
         $config = Config::load(APP_PATH . "Application/Configs");
 
         //注入到容器，下次可以直接使用
-        $container['config'] = $config;
+        self::$container['config'] = $config;
 
         //数据库
 //        $db = new Database([
@@ -65,20 +53,19 @@ class App
 //        ]);
 //        $container['dataBase'] = $db->db;
 
+
         //初始化视图
         $view = new View();
-        $container['view'] = $view;
+        self::$container['view'] = $view;
 
         //日志服务代码如下，我们使用config作为闭包的参数传进去
 //        $container['logger'] = function () use ($config) {
 //        };
         $logger = new Logger($config->get('app_name'));
         $logger->pushHandler(new StreamHandler(APP_PATH . $config->get('log_file'), Logger::WARNING));
-        $container['logger'] = $logger;
-
-        self::$container = $container;
-
+        self::$container['logger'] = $logger;
     }
+
 
     /**
      * getContainer  [得到容器加载应用]

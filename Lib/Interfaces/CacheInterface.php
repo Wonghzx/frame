@@ -48,7 +48,7 @@ interface CacheInterface
      * @author Wongzx <842687571@qq.com>
      * @return mixed
      */
-    public function set($id = '', array $data, $lifeTime = '');
+    public function set($id = '', $data, $lifeTime = '');
 
 
     /**
@@ -78,4 +78,16 @@ interface CacheInterface
      * @return mixed
      */
     public function deleteAll();
+
+
+    /**
+     * setNamespace  [命名空间缓存]
+     * 如果您在应用程序中大量使用缓存并将其用于应用程序的多个部分，
+     * 或者在同一服务器上的不同应用程序中使用缓存，则缓存命名冲突可能会有问题。
+     * 这可以通过使用命名空间解决。您可以通过使用setNamespace()方法来设置缓存驱动程序应该使用的名称空间 。
+     * @copyright Copyright (c)
+     * @author Wongzx <842687571@qq.com>
+     * @return mixed
+     */
+    public function setNamespace($namespace);
 }

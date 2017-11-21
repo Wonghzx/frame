@@ -7,3 +7,7 @@ default:     #默认模块
     app_name: Http                    #
 
     default_module: Web               #默认视图模块
+dcache:
+    set_cache: default     #设置缓存驱动  默认使用ArrayCache 更多相关缓存看Cache.yml
+    layout_on: off         #off 关闭   on开启
+    cache_time: 3600

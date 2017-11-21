@@ -1,0 +1,39 @@
+    #缓存驱动配置文件  多种缓存驱动 Apc Apcu Redis Memcache Memcached XCache ArrayCache。
+    # 开启缓存  默认使用ArrayCache
+    #提供一个ArrayCache将数据存储在PHP数组中的驱动程序。显然，
+    #使用时ArrayCache，缓存不会在请求之间持续存在，但这对于在开发环境中进行测试非常有用。
+
+# ArrayCache缓存驱动
+cache:
+    default:
+        cacheName:  arrayCache
+
+    # Memcached 缓存驱动
+    memcached:
+        cacheName: memcached
+        host: 127.0.0.1
+        port: 11211
+
+    # Memcache 缓存驱动
+    memcache:
+        cacheName: memcache
+        host: 127.0.0.1
+        port: 11211
+
+    # Redis 缓存驱动
+    redis:
+        cacheName: redis
+        host: 127.0.0.1
+        port: 6379
+
+    # apcu 缓存驱动
+    apcu:
+        cacheName: apcu
+
+    # apc 缓存驱动
+    apc:
+        cacheName: apc
+
+    # apc 缓存驱动
+    Xcache:
+        cacheName: Xcache
