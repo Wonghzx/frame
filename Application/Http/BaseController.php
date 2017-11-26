@@ -6,7 +6,6 @@ use Lib\App;
 
 class BaseController
 {
-
     protected $container;
 
     protected $database;
@@ -51,6 +50,18 @@ class BaseController
     protected function db()
     {
         return $this->container['dataBase'];
+    }
+
+
+    /**
+     *[session session会话]
+     * @author  Wongzx <[842687571@qq.com]>
+     * @copyright Copyright (c)
+     * @return    [type]        [description]
+     */
+    protected function session()
+    {
+        return $this->container['session'];
     }
 
 

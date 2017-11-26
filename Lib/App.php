@@ -61,6 +61,9 @@ class App
         $view = new View();
         self::$container['view'] = $view;
 
+        //设置session会话
+        self::$container['session'] = $this->createSession();
+
         //日志服务代码如下，我们使用config作为闭包的参数传进去
 //        $container['logger'] = function () use ($config) {
 //        };
@@ -68,6 +71,19 @@ class App
         $logger->pushHandler(new StreamHandler(APP_PATH . $config->get('log_file'), Logger::WARNING));
 
         self::$container['logger'] = $logger;
+    }
+
+
+    /**
+     *[createSession void]
+     * @author  Wongzx <[842687571@qq.com]>
+     * @copyright Copyright (c)
+     * @return    [type]        [description]
+     */
+    private function createSession()
+    {
+        $sessionInstance = new SessionInstance('APPSESSION');
+        return $sessionInstance;
     }
 
 
