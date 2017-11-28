@@ -13,4 +13,33 @@ doctrine:
 services:
     database: Nette\Database\Connection( %dsn%, %user%, %password% )
     articleFactory: ArticleFactory
+medoo:
+    #必填
+    database_type: mysql
+    database_name: test
+    server: 192.168.1.161
+    username: root
+    password: xcrozz###
+
+    #[可选的]
+    charset: utf8
+    port: 3306
+
+    #可选]表格前缀
+    prefix:
+
+    #[可选]启用日志记录（为了获得更好的性能，默认情况下禁用日志记录）
+    logging: true
+
+    #[可选] MySQL套接字（不应与服务器和端口一起使用）
+    #socket: /tmp/mysql.sock
+
+    # [可选]用于连接的driver_option，请阅读http://www.php.net/manual/en/pdo.setattribute.php
+    option:
+        PDO::ATTR_CASE : PDO::CASE_NATURAL
+
+    # [可选]在连接到数据库进行初始化之后，Medoo将执行这些命令
+    command:
+        "SET SQL_MODE = ANSI_QUOTES"
+
 

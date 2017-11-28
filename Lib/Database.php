@@ -3,17 +3,15 @@
 namespace Lib;
 
 use Doctrine\DBAL\Configuration;
-
+use Medoo\Medoo;
 
 class Database
 {
-    private static $dbInfo;
-
     private $parameters;
 
     private $services = [];
 
-    public $db;
+    public  $db;
 
     public function __construct(array $parameters)
     {
@@ -30,9 +28,13 @@ class Database
      */
     private function createDatabase()
     {
-        $config = new Configuration();
-        $conn = \Doctrine\DBAL\DriverManager::getConnection($this->parameters, $config);
-        return $conn;
+//        $config = new Configuration();
+//        $conn = \Doctrine\DBAL\DriverManager::getConnection($this->parameters, $config);
+//        return $conn;
+
+        // Initialize
+        $database = new Medoo($this->parameters);
+        return $database;
     }
 
     private function getService($name = 'Database')

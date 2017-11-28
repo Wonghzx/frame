@@ -40,11 +40,11 @@ trait Handler
                 }
             }
         });
-        // Fetch method and URI from somewhere
+        // 获取方法和URI
         $httpMethod = $_SERVER['REQUEST_METHOD'];
         $uri = self::getUri();
 
-        // Strip query string (?foo=bar) and decode URI
+        // 条查询字符串 (?foo=bar) 和解码 URI
         if (false !== $pos = strpos($uri, '?')) {
             $uri = substr($uri, 0, $pos);
         }
@@ -53,7 +53,7 @@ trait Handler
         $routeInfo = $dispatcher->dispatch($httpMethod, $uri);
         switch ($routeInfo[0]) {
             case \FastRoute\Dispatcher::NOT_FOUND:
-                echo "404 Not Found s";
+                echo "404 Not Found ";
                 break;
             case \FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
                 $allowedMethods = $routeInfo[1];

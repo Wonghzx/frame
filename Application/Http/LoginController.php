@@ -18,7 +18,6 @@ class LoginController extends BaseController
             $userInfo = $this->DB()->query($sql)->fetch();
             if (!empty($userInfo)) {
                 session('userInfo', $userInfo);
-//                $_SESSION['userInfo'] = $userInfo;
                 header('Location: /Index/index');
             }
         }

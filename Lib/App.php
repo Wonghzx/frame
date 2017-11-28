@@ -43,15 +43,16 @@ class App
         self::$container['config'] = $config;
 
         //数据库
-        $db = new Database([
-            'dbname' => $config['doctrine']['dbal']['db_name'],
-            'user' => $config['doctrine']['dbal']['db_user'],
-            'password' => $config['doctrine']['dbal']['db_pwd'],
-            'host' => $config['doctrine']['dbal']['db_host'],
-            'driver' => $config['doctrine']['dbal']['db_driver'],
-            'port' => $config['doctrine']['dbal']['db_port'],
-            'charset' => $config['doctrine']['dbal']['db_charset'],
-        ]);
+//        $db = new Database([
+//            'dbname' => $config['doctrine']['dbal']['db_name'],
+//            'user' => $config['doctrine']['dbal']['db_user'],
+//            'password' => $config['doctrine']['dbal']['db_pwd'],
+//            'host' => $config['doctrine']['dbal']['db_host'],
+//            'driver' => $config['doctrine']['dbal']['db_driver'],
+//            'port' => $config['doctrine']['dbal']['db_port'],
+//            'charset' => $config['doctrine']['dbal']['db_charset'],
+//        ]);
+        $db = new Database($config->get('medoo'));
         self::$container['dataBase'] = $db->db;
 
 

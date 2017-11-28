@@ -59,7 +59,8 @@ class View
         if (file_exists(self::VIEW_BASE_PATH . $fileName)) {
             return $fileName;
         } else {
-            throw new \Exception('404');
+//            throw new \Exception('404');
+            dump($fileName . '模板不存在');
         }
     }
 

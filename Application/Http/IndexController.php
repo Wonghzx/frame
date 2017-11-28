@@ -10,7 +10,6 @@ class IndexController extends BaseController
     public function __construct()
     {
         parent::__construct();
-
         $session = session('userInfo');
         if (empty($session)) {
             header('Location: /Login/login');
@@ -22,9 +21,12 @@ class IndexController extends BaseController
 
     public function index()
     {
+
+//        echo db()->last();
+        die;
         $sql = " SELECT * FROM groups WHERE id = 1";
         $group = $this->db()->query($sql)->fetch();
-
+        dump($group);die;
         $sql = " SELECT * FROM user  ";
         $userInfo = $this->db()->query($sql)->fetchAll();
 

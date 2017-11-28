@@ -31,3 +31,21 @@ if (!function_exists('session')) {
 
     }
 }
+
+if (!function_exists('db')) {
+    /**
+     * db  [数据库操作]
+     * @copyright Copyright (c)
+     * @author Wongzx <842687571@qq.com>
+     * @return mixed
+     */
+    function db()
+    {
+        $config = \Lib\App::getContainer();
+        static $_model = array();
+        $guid = '';
+        if (!isset($_model[$guid]))
+            $_model[$guid] = new \Lib\Database($config['config']['medoo']);
+        return $_model[$guid]->db;
+    }
+}
