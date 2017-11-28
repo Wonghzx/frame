@@ -10,17 +10,14 @@ class IndexController extends BaseController
     public function __construct()
     {
         parent::__construct();
-        $session = new SessionInstance("my-app");
-        Session::name('my-apsp');
-//        dump(Session::getAll());die;
-        $sessions = $session->get('userInfo');
-//        dump($session->getFlash('id'));die;
-        if (empty($sessions)) {
+
+        $session = session('userInfo');
+        if (empty($session)) {
             header('Location: /Login/login');
             exit();
         }
 
-//        $this->uid = $_SESSION['userInfo']['id'];
+        $this->uid = $session['id'];
     }
 
     public function index()
@@ -46,7 +43,7 @@ class IndexController extends BaseController
             'tid' => $users,
             'groups' => $group['id'],
             'user' => $userInfo,
-            'userInfo' => $_SESSION['userInfo'],
+            'userInfo' => session('userInfo'),
         ];
         $this->display('index', $res);
     }

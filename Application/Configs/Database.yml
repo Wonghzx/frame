@@ -2,11 +2,11 @@
 doctrine:
     dbal:
       db_driver: pdo_mysql    #
-      db_host: 192.168.100.20  #
+      db_host: 192.168.1.161  #
       db_port: 3306           #
       db_name: test           #
       db_user: root           #
-      db_pwd: 123456       #
+      db_pwd: xcrozz###       #
       db_dbms: mysql          #
       db_engine: MyISAM       #
       db_charset: utf8        #

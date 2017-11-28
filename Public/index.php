@@ -14,6 +14,7 @@ if (DEBUGS) {
     $whoops = new \Whoops\Run;
     $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
     $whoops->register();
+    ini_set("display_errors","On");
 } else {
     ini_set("display_errors", "Off");
 }

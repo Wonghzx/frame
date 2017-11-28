@@ -65,14 +65,15 @@
         <div class="chat_right">
             <ul class="user_list" title="双击用户私聊">
                 <li class="fn-clear selected"><em>所有用户</em></li>
-                {% for users in user %}
-                    <li class="fn-clear" data-id="1"><span>
-                        <img src="{{users.user_photo}}" width="30" height="30"  alt=""/>
+                        
+                    <li n:foreach="$user as $item" class="fn-clear" data-id="1" >
+                        <span>
+                            <img src="{$item['user_photo']}" width="30" height="30"  alt=""/>
                         </span>
-                        <em>{{users.user_nickname}}</em>
+                        <em>{$item['user_nickname']}</em>
                         <small class="online" title="在线"></small>
                     </li>
-                {% endfor %}
+                                  
 
                <!--  <li class="fn-clear" data-id="2"><span><img src="/../Static/images/53f44283a4347.jpg" width="30" height="30"  alt=""/></span><em>猫猫</em><small class="online" title="在线"></small></li>
                 <li class="fn-clear" data-id="3"><span><img src="/../Static/images/53f442834079a.jpg" width="30" height="30"  alt=""/></span><em>白猫</em><small class="offline" title="离线"></small></li> -->
@@ -127,17 +128,18 @@
             }
         });
     });
-    var myId = "{{userId}}";
-    var tid = "{{tid}}"; //接收者uid
-    var groups = "{{groups}}";
-    var user_photo = "{{userInfo['user_photo']}}";
+
+    var myId = {$userId};
+    var tid = {$tid};
+    var groups = {$groups};
+    var user_photo = {$userInfo['user_photo']}
     var exampleSocket = new WebSocket("ws://192.168.128.130:9502");
     $(function () {
         exampleSocket.onopen = function (event) {
             console.log(event.data)
             initData(); //加载历史记录
         };
-        exampleSocket.onmessage = function (event) {    
+        exampleSocket.onmessage = function (event) {
             forInMess($.parseJSON(event.data)); //导入消息记录，加载新的消息
             console.log($.parseJSON(event.data));
         }

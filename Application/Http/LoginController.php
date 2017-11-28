@@ -14,22 +14,25 @@ class LoginController extends BaseController
             $password = isset($_POST['password']) ? $_POST['password'] : '';
 
             $password = url_encrypt($password, 'password');
-            $sql = " SELECT id,user_name,user_pwd FROM user WHERE user_name = '{$username}' AND user_pwd = '{$password}' ";
+            $sql = " SELECT id,user_name,user_pwd,user_photo FROM user WHERE user_name = '{$username}' AND user_pwd = '{$password}' ";
             $userInfo = $this->DB()->query($sql)->fetch();
             if (!empty($userInfo)) {
-                $this->session();
+                session('userInfo', $userInfo);
 //                $_SESSION['userInfo'] = $userInfo;
                 header('Location: /Index/index');
             }
         }
-        $this->display('login', ['abc' => '123']);
+        $this->display('login');
 
     }
 
     public function signOut()
     {
-        session_destroy();
-        header('Location: /Index/index');
+
+        session(function ($s) {
+            $s->destroy();
+            header('Location: /Index/index');
+        });
     }
 
 
