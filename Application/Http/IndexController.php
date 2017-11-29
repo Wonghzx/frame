@@ -17,19 +17,16 @@ class IndexController extends BaseController
         }
 
         $this->uid = $session['id'];
+
     }
 
     public function index()
     {
-
-//        echo db()->last();
+        dump(output(['asd'=>'中文']));
         die;
-        $sql = " SELECT * FROM groups WHERE id = 1";
-        $group = $this->db()->query($sql)->fetch();
-        dump($group);die;
-        $sql = " SELECT * FROM user  ";
-        $userInfo = $this->db()->query($sql)->fetchAll();
+        $group = $this->database->get('groups', ['id', 'users'], ['id' => 1]);
 
+        $userInfo = $this->database->select('user', ['id', 'user_name', 'user_pwd', 'user_nickname', 'user_photo']);
 
         $users = explode(',', $group['users']);
 

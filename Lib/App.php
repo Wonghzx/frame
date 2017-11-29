@@ -10,7 +10,7 @@ use Monolog\Logger;
 
 class App
 {
-    use Handler;
+    use Handler, Model;
 
     protected static $container;
 
@@ -22,8 +22,16 @@ class App
      */
     public function run()
     {
+        //系统常量
+        self::systemConstant();
+
+        //加载容器
         $this->initContainer();
+
+        //加载路由
         $this->initRoute();
+
+
     }
 
     /**
@@ -31,7 +39,7 @@ class App
      * @copyright Copyright (c)
      * @author Wongzx <842687571@qq.com>
      */
-    public function initContainer()
+    public static function initContainer()
     {
         //实例化容器对象
         self::$container = new Container();
@@ -68,7 +76,6 @@ class App
 
         self::$container['logger'] = $logger;
     }
-
 
     /**
      * getContainer  [得到容器加载应用]

@@ -9,9 +9,9 @@ class Database
 {
     private $parameters;
 
-    private $services = [];
+    private static $services = [];
 
-    public  $db;
+    public $db;
 
     public function __construct(array $parameters)
     {
@@ -39,12 +39,12 @@ class Database
 
     private function getService($name = 'Database')
     {
-        if (!isset($this->services[$name])) {
+        if (!isset(self::$services[$name])) {
             // getService('Database') 调用 createDatabase() 方法
             $method = 'create' . $name;
-            $this->services[$name] = $this->$method();
+            self::$services[$name] = $this->$method();
         }
-        return $this->services[$name];
+        return self::$services[$name];
     }
 
     /**

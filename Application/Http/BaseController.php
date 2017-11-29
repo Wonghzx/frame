@@ -25,6 +25,7 @@ class BaseController
         if ($isMobile) {
             $this->container['config']['default']['default_module'] = 'Mobile';
         }
+        $this->database = $this->db();
 
     }
 
@@ -47,7 +48,7 @@ class BaseController
      * @copyright Copyright (c)
      * @return    [type]        [description]
      */
-    protected function db()
+    private function db()
     {
         return $this->container['dataBase'];
     }
