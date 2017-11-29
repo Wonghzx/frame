@@ -56,14 +56,15 @@ if (!function_exists('db')) {
 }
 
 if (!function_exists('output')) {
-
     /**
-     * 比较标准的接口输出函数
-     * @param string $message 消息
-     * @param integer $code 接口错误码，很关键的参数
+     * output  [比较标准的接口输出函数]
      * @param array $data 附加数据
-     * $param string  $location 重定向
-     * @return array
+     * @param int $code 接口错误码，很关键的参数
+     * @param string $message 消息
+     * @param string $location 重定向
+     * @copyright Copyright (c)
+     * @author Wongzx <842687571@qq.com>
+     * @return array|string
      */
     function output(array $data = [], $code = 200, $message = '', $location = '')
     {
