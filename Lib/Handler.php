@@ -53,11 +53,12 @@ trait Handler
         $routeInfo = $dispatcher->dispatch($httpMethod, $uri);
         switch ($routeInfo[0]) {
             case \FastRoute\Dispatcher::NOT_FOUND:
-                echo "404 Not Found ";
+//                include APP_PATH.'/Public/404.html';
+//                echo "404 Not Found ";
                 break;
             case \FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
                 $allowedMethods = $routeInfo[1];
-                echo "405 Method Not Allowed";
+//                echo "405 Method Not Allowed";
                 break;
             case \FastRoute\Dispatcher::FOUND:
                 $handler = $routeInfo[1];

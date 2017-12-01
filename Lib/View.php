@@ -60,7 +60,7 @@ class View
             return $fileName;
         } else {
 //            throw new \Exception('404');
-            dump($fileName . '模板不存在');
+            include APP_PATH.'/Public/404.html';
         }
     }
 

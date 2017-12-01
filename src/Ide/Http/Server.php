@@ -1,14 +1,14 @@
 <?php
 
-namespace Plugins\swoole;
+namespace swoole\Http;
+
 
 /**
- * Class swoole_http_server
- *
- *  内置 Web 服务器
+ * 内置 Web 服务器
+ * Class Server
+ * @package swoole\Http
  */
-
-class Server extends \swooleServer
+class Server extends \swoole\Server
 {
 
     /**
