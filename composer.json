@@ -16,8 +16,7 @@
   "autoload": {
     "classmap": [
       "Lib/",
-      "Application/",
-      "src/"
+      "Application/"
     ]
   },
   "repositories": {
